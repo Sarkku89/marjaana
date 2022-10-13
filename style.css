@@ -1,0 +1,351 @@
+/*
+Theme name: Marjaana
+Theme author: SEM Group 8
+*/
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    margin: 0;
+    background-color: lightgrey;
+}
+
+#site-container {
+    background-color: white;
+    max-width: 1500px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 10px;
+}
+
+#site-header{
+    width: 100%;
+    background: url('banner.jpg');
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    border-bottom: solid 10px orange;
+}
+#site-header h1{
+    width: 50%;
+    color: black;
+    -webkit-text-stroke: 1px orange;
+    font-size: 4.0em;
+    margin: 0;
+}
+#top-navi {
+    background-color: orange;
+    margin: 0;
+    
+}
+#top-navi ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#top-navi ul li{
+    position: relative;
+    
+
+}
+#top-navi >div > ul > li:first-child{
+    display: none;
+}
+#top-navi ul li a{
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+    display: block;
+    padding: 20px 30px;
+    margin: 0;
+    text-align: center;
+    font-size: 1.3em;
+}
+#top-navi .sub-menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    display:none;
+
+}
+#top-navi ul li:hover .sub-menu{
+    display: block;
+}
+
+#top-navi ul li:hover{
+    background-color: chocolate;
+    filter: drop-shadow(3px 3px 2px gray);
+}
+
+#top-navi .sub-menu li{
+    background-color: orange;
+    display: block;
+    width: 100%;
+}
+
+
+#content {
+    display: flex;
+}
+#content main {
+    width: 70%;
+    padding: 10px;
+}
+
+#content main article {
+    border-bottom: 1px dashed #808080;
+    margin: 30px;
+}
+
+#content main article h2{
+    font-size: 2.0em;
+}
+#content main article p{
+    font-size: 1.1em;
+}
+#co
+#content main article:last-child, #content main article:only-child{
+    border-bottom: none;
+}
+
+#content main a {
+    text-decoration: none;
+    color: orange;
+    font-weight: bold;
+}
+
+#content main h1 a, #content main h2 a{
+    text-decoration: none;
+    color: black;
+}
+#pagetitle{
+    margin: 30px 0px 0px 30px;
+    font-size: 2.0em;
+}
+#content main a:hover {
+    color: orange;
+}
+
+#content main h1 a:hover, #content main h2 a:hover{
+    color: orange;
+}
+
+#content main .date-category, #content #news-box .date{
+    color: gray;
+    margin-top: 0;
+}
+
+#content #front-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    min-height: 70%;
+
+}
+
+#content #front-page #fp-text{
+    width: 100%;
+}
+
+#content main #front-page #front-page-img{
+    display: flex;
+    width: 50%;
+    border-radius: 10px;
+    margin: 10px;
+    margin-left: 0;
+}
+
+#content main #front-page p{
+    margin: 10px;
+    font-size: 1.2em;
+
+}
+#content main #front-page h2{
+    margin: 10px;
+    font-size: 2.0em;
+}
+
+#content #news-box .news{
+    width: 50%;
+    padding: 10px;
+}
+
+#content #news-box{
+    display: flex;
+}
+#content #subcate-box #subcate-list{
+    margin: 0px 50px 0px 0px
+}
+
+#content main #subcate-box #subcate-img{
+    display: flex;
+    width: 40%;
+    border-radius: 10px;
+    margin: 0px 50px 30px 15px;
+    margin-left: 0;
+}
+
+#content #subcate-box{
+    display: flex;
+    margin-left: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    min-height: 70%;
+
+}
+
+#activity-box{
+    display: flex;
+    flex-wrap: wrap;
+}
+#activity-box section {
+    width: 50%;
+    padding-right: 10px;
+}
+
+#activity-box section:nth-child(3){
+   padding-right: 0px;
+}
+#sidebar {
+    width: 30%;
+    padding: 10px;
+}
+#content #sidebar a{
+    color: orange;
+    text-decoration: none;
+    font-size: 1.3em;
+}
+
+#content #sidebar a:hover {
+    color: chocolate;
+}
+#content #sidebar h2, #content #sidebar h1{
+    background-color: orange;
+    color: white;
+    font-size: 1.25em;
+    padding: 10px;
+    border-radius: 20px;
+}
+#content #sidebar > div:first-child > h2 {
+    margin-top: 5px;
+}
+#site-footer {
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    margin:0;
+
+}
+
+
+@media only screen and (max-width: 950px){
+    #content #news-box{
+        display: block;
+    }
+    #content #news-box .news{
+        width: 100%;
+    }
+    #content #front-page{
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+    #content main #front-page #front-page-img{
+        width: 100%;
+        margin: 0;
+    }
+    
+    #content main #front-page #fp-text{
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+        
+    }
+    #site-header{
+        width: 100%;
+        background: none;
+        background-color: black;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        text-align: center;
+    }
+    #site-header h1{
+        width: 100%;
+        color: white;
+        -webkit-text-stroke: 1px orange;
+        font-size: 3.0em;
+        margin: 0;
+    }
+    #content #subcate-box #subcate-list{
+        margin: 0px 50px 0px 0px
+    }
+    
+    #content main #subcate-box #subcate-img{
+        display: block;
+        width: 80%;
+        border-radius: 10px;
+        margin: 15px;
+        margin-left:0px;
+    }
+    
+    #content #subcate-box{
+        display: block;
+        margin-left: 30px;
+        padding-right: 10px;
+        padding-left: 10px;
+    
+    }
+    
+}
+
+@media only screen and (max-width: 680px){
+    #content{
+        display: block;
+    }
+    #content main{
+        width: 100%;
+    }
+    
+    #conent #sidebar{
+        width: 100%;
+    }
+    #top-navi ul{
+        display: block;
+    }
+    #top-navi .sub-menu{
+        display: block;
+        position: relative;
+        top: 0;
+        left: 0;
+        font-size: 1em;
+        padding: 5px 5px;
+    }
+    #top-navi >div > ul > li:first-child{
+        display: block;
+    }
+    #top-navi >div > ul > li:first-child:hover{
+        background-color: orange;
+    }
+    #top-navi >div > ul > li:not(:first-child){
+        display: none;
+    }
+
+    #sidebar {
+        width: 100%;
+    }
+    #site-header h1{
+        font-size: 2.5em;
+    }
+
+}
