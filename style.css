@@ -1,6 +1,6 @@
 /*
 Theme name: Marjaana
-Theme author: SEM Group 8
+Theme author: SEM GROUP 8
 */
 *{
     box-sizing: border-box;
@@ -21,21 +21,19 @@ body{
 
 #site-header{
     width: 100%;
-    background: url('banner.jpg');
+    background-color:green;
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
-    border-bottom: solid 10px orange;
 }
-#site-header h1{
-    width: 50%;
-    color: black;
-    -webkit-text-stroke: 1px orange;
-    font-size: 4.0em;
-    margin: 0;
+#top-navi h1{
+    color: white;
+    font-size: 3.0em;
+    margin-left: 20px;
+    flex-wrap: wrap;
 }
 #top-navi {
-    background-color: orange;
+    background-color: green;
     margin: 0;
     
 }
@@ -78,12 +76,12 @@ body{
 }
 
 #top-navi ul li:hover{
-    background-color: chocolate;
+    background-color: darkgreen;
     filter: drop-shadow(3px 3px 2px gray);
 }
 
 #top-navi .sub-menu li{
-    background-color: orange;
+    background-color: green;
     display: block;
     width: 100%;
 }
@@ -115,7 +113,7 @@ body{
 
 #content main a {
     text-decoration: none;
-    color: orange;
+    color: green;
     font-weight: bold;
 }
 
@@ -128,11 +126,11 @@ body{
     font-size: 2.0em;
 }
 #content main a:hover {
-    color: orange;
+    color: green;
 }
 
 #content main h1 a:hover, #content main h2 a:hover{
-    color: orange;
+    color: green;
 }
 
 #content main .date-category, #content #news-box .date{
@@ -220,16 +218,16 @@ body{
     padding: 10px;
 }
 #content #sidebar a{
-    color: orange;
+    color: green;
     text-decoration: none;
     font-size: 1.3em;
 }
 
 #content #sidebar a:hover {
-    color: chocolate;
+    color: darkgreen;
 }
 #content #sidebar h2, #content #sidebar h1{
-    background-color: orange;
+    background-color: green;
     color: white;
     font-size: 1.25em;
     padding: 10px;
@@ -239,7 +237,7 @@ body{
     margin-top: 5px;
 }
 #site-footer {
-    background-color: orange;
+    background-color: green;
     color: white;
     font-weight: bold;
     padding: 10px;
@@ -247,6 +245,12 @@ body{
     margin:0;
 
 }
+
+table#kek-kokeet, table#kek-kokeet th, table#kek-kokeet td{
+    border: 1px solid black;
+    border-radius: 2px;
+    }
+    
 
 
 @media only screen and (max-width: 950px){
@@ -283,7 +287,7 @@ body{
     #site-header h1{
         width: 100%;
         color: white;
-        -webkit-text-stroke: 1px orange;
+        -webkit-text-stroke: 1px green;
         font-size: 3.0em;
         margin: 0;
     }
@@ -306,6 +310,7 @@ body{
         padding-left: 10px;
     
     }
+    
     
 }
 
@@ -335,7 +340,7 @@ body{
         display: block;
     }
     #top-navi >div > ul > li:first-child:hover{
-        background-color: orange;
+        background-color: green;
     }
     #top-navi >div > ul > li:not(:first-child){
         display: none;
