@@ -40,105 +40,105 @@ function ecal_add_custom_box(){
     add_meta_box( 
         'ecal_date_id',
         __('Päivämäärä' ),  
-        'ecal_date_box_hotoml', 	 
+        'ecal_date_box_hmtl', 	 
         'ecal-event', 					 
         'normal' 
     );
     add_meta_box( 
         'ecal_organizer_id',
         __('Järjestäjä' ),  
-        'ecal_organizer_box_hotoml', 	 
+        'ecal_organizer_box_hmtl', 	 
         'ecal-event', 					 
         'normal' 
     );
     add_meta_box( 
         'ecal_first_judge_id',	  
         __('Ylituomari' ),   
-        'ecal_first_judge_box_hotoml', 	  
+        'ecal_first_judge_box_hmtl', 	  
         'ecal-event', 					  
         'normal' 
     );
     add_meta_box( 
         'ecal_second_judge_id',	  
         __('Palkintotuomari' ),   
-        'ecal_second_judge_box_hotoml', 	  
+        'ecal_second_judge_box_hmtl', 	  
         'ecal-event', 					  
         'normal' 
     );
     add_meta_box( 
         'ecal_limit_id',	  
         __('Rajoitukset' ),   
-        'ecal_limit_box_hotoml', 	  
+        'ecal_limit_box_hmtl', 	  
         'ecal-event', 					  
         'normal' 
     );
     add_meta_box( 
         'ecal_maxmin_id',	  
         __('Koiramäärä' ),   
-        'ecal_maxmin_box_hotoml', 	  
+        'ecal_maxmin_box_hmtl', 	  
         'ecal-event', 					  
         'normal' 
     );
     add_meta_box( 
         'ecal_priority_id',	  
         __('Etusija' ),   
-        'ecal_priority_box_hotoml', 	  
+        'ecal_priority_box_hmtl', 	  
         'ecal-event', 					  
         'normal' 
     );
     add_meta_box( 
         'ecal_enrollment_id',	  
         __('Ilmoittautumisaika' ),   
-        'ecal_enrollment_box_hotoml', 	  
+        'ecal_enrollment_box_hmtl', 	  
         'ecal-event', 					  
         'normal' 
     );
     add_meta_box( 
         'ecal_price_id',	  
         __('Osallistumismaksu' ),   
-        'ecal_price_box_hotoml', 	  
+        'ecal_price_box_hmtl', 	  
         'ecal-event', 					  
         'normal' 
     );
     add_meta_box( 
         'ecal_info_id',	  
         __('Lisätiedot' ),   
-        'ecal_info_box_hotoml', 	  
+        'ecal_info_box_hmtl', 	  
         'ecal-event', 					  
         'normal' 
     );
     add_meta_box( 
         'ecal_other_id',	  
         __('Muuta' ),   
-        'ecal_other_box_hotoml', 	  
+        'ecal_other_box_hmtl', 	  
         'ecal-event', 					  
         'normal' 
     );
     add_meta_box( 
         'ecal_contact_id',	  
         __('Tiedustelut' ),   
-        'ecal_contact_box_hotoml', 	  
+        'ecal_contact_box_hmtl', 	  
         'ecal-event', 					  
         'normal' 
     );
     add_meta_box( 
         'ecal_class_id',	  
         __('Luokka' ),   
-        'ecal_class_box_hotoml', 	  
+        'ecal_class_box_hmtl', 	  
         'ecal-event', 					  
         'normal' 
     );
     add_meta_box( 
         'ecal_place_id',	  
         __('Paikkakunta' ),   
-        'ecal_place_box_hotoml', 	  
+        'ecal_place_box_hmtl', 	  
         'ecal-event', 					  
         'normal' 
     );
     add_meta_box( 
         'ecal_address_id',	  
         __('Osoite' ),   
-        'ecal_address_box_hotoml', 	  
+        'ecal_address_box_hmtl', 	  
         'ecal-event', 					  
         'normal' 
     );
@@ -147,7 +147,7 @@ function ecal_add_custom_box(){
 add_action('add_meta_boxes', 'ecal_add_custom_box');
 
 // Defining function for each custom field
-function ecal_date_box_hotoml($post){
+function ecal_date_box_hmtl($post){
     $date = get_post_meta( $post->ID, '_ecal_meta_date', true );
 
 	?>
@@ -158,7 +158,7 @@ function ecal_date_box_hotoml($post){
 }
 
 
-function ecal_organizer_box_hotoml($post){
+function ecal_organizer_box_hmtl($post){
     $value = get_post_meta($post->ID, '_ecal_meta_organizer', true);
     ?>
     <label for ="ecal_organizer">Järjestäjä</label><br>
@@ -166,7 +166,7 @@ function ecal_organizer_box_hotoml($post){
     <?php
 }
 
-function ecal_first_judge_box_hotoml($post){
+function ecal_first_judge_box_hmtl($post){
     $value = get_post_meta($post->ID, '_ecal_meta_first_judge', true);
     ?>
     <label for ="ecal_first_judge">Ylituomari</label><br>
@@ -174,7 +174,7 @@ function ecal_first_judge_box_hotoml($post){
     <?php
 }
 
-function ecal_second_judge_box_hotoml($post){
+function ecal_second_judge_box_hmtl($post){
     $value = get_post_meta($post->ID, '_ecal_meta_second_judge', true);
     ?>
     <label for ="ecal_second_judge">Palkintotuomari</label><br>
@@ -182,14 +182,14 @@ function ecal_second_judge_box_hotoml($post){
     <?php
 }
 
-function ecal_limit_box_hotoml($post){
+function ecal_limit_box_hmtl($post){
     $value = get_post_meta($post->ID, '_ecal_meta_limit', true);
     ?>
     <label for ="ecal_limit">Rajoitukset</label><br>
     <textarea rows = "5" cols = "60" name ="ecal_limit" id="ecal_limit"><?php echo $value; ?></textarea>
     <?php
 }
-function ecal_maxmin_box_hotoml($post){
+function ecal_maxmin_box_hmtl($post){
     $value = get_post_meta($post->ID, '_ecal_meta_max', true);
     $value2 = get_post_meta($post->ID, '_ecal_meta_min', true);
     ?>
@@ -200,7 +200,7 @@ function ecal_maxmin_box_hotoml($post){
     <?php
 }
 
-function ecal_priority_box_hotoml($post){
+function ecal_priority_box_hmtl($post){
     $value = get_post_meta($post->ID, '_ecal_meta_priority', true);
     ?>
     <label for ="ecal_priority">Etusija</label><br>
@@ -208,7 +208,7 @@ function ecal_priority_box_hotoml($post){
     <?php
 }
 
-function ecal_enrollment_box_hotoml( $post ) {
+function ecal_enrollment_box_hmtl( $post ) {
 
 	$custom_date = get_post_meta( $post->ID, '_ecal_meta_enrollment1', true );
     $custom_date2 = get_post_meta( $post->ID, '_ecal_meta_enrollment2', true );
@@ -222,7 +222,7 @@ function ecal_enrollment_box_hotoml( $post ) {
     <?php
 
 }
-function ecal_price_box_hotoml($post){
+function ecal_price_box_hmtl($post){
     $value1 = get_post_meta($post->ID, '_ecal_meta_price1', true);
     $value2 = get_post_meta($post->ID, '_ecal_meta_price2', true);
     ?>
@@ -233,7 +233,7 @@ function ecal_price_box_hotoml($post){
     <?php
 }
 
-function ecal_info_box_hotoml($post){
+function ecal_info_box_hmtl($post){
     $value = get_post_meta($post->ID, '_ecal_meta_info', true);
     ?>
     <label for ="ecal_info">Lisätiedot</label><br>
@@ -241,7 +241,7 @@ function ecal_info_box_hotoml($post){
     <?php
 }
 
-function ecal_other_box_hotoml($post){
+function ecal_other_box_hmtl($post){
     $value = get_post_meta($post->ID, '_ecal_meta_other', true);
     ?>
     <label for ="ecal_other">Muuta</label><br>
@@ -249,21 +249,21 @@ function ecal_other_box_hotoml($post){
     <?php
 }
 
-function ecal_contact_box_hotoml($post){
+function ecal_contact_box_hmtl($post){
     $value = get_post_meta($post->ID, '_ecal_meta_contact', true);
     ?>
     <label for ="ecal_contact">Tiedustelut</label><br>
     <textarea rows = "5" cols = "60" name ="ecal_contact" id="ecal_contact"><?php echo $value; ?></textarea>
     <?php
 }
-function ecal_class_box_hotoml($post){
+function ecal_class_box_hmtl($post){
     $value = get_post_meta($post->ID, '_ecal_meta_class', true);
     ?>
     <label for ="ecal_class">Luokka</label><br>
     <input type="text" name="ecal_class" id="ecal_class" size="1" placeholder="Anna arvoksi 1,2 tai 3" value="<?php echo $value; ?>">
     <?php
 }
-function ecal_place_box_hotoml($post){
+function ecal_place_box_hmtl($post){
     $value = get_post_meta($post->ID, '_ecal_meta_place', true);
     ?>
     <p id ="error"></p><br>
@@ -271,7 +271,7 @@ function ecal_place_box_hotoml($post){
     <input type="text" name="ecal_place" id="ecal_place" size="50" value="<?php echo $value; ?>">
     <?php
 }
-function ecal_address_box_hotoml($post){
+function ecal_address_box_hmtl($post){
     $value = get_post_meta($post->ID, '_ecal_meta_address', true);
     ?>
     <p id ="error"></p><br>
