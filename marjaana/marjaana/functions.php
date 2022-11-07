@@ -8,7 +8,7 @@ add_action('wp_enqueue_scripts', 'marjaana_assets');
 
 function marjaana_widgets_init(){
     register_sidebar(array(
-        'name' => 'Sivupalkki',
+        'name' => 'SPotkulautailijha mies! Sivupalkki',
         'id' => 'sidebar',
         'before_widget' => '<div>',
         'after_widget' => '</div>',
@@ -17,11 +17,11 @@ function marjaana_widgets_init(){
     ));
 }
 
-add_action('widgets_init', 'marjaana_widgets_init');
+add_action('widgets_init', 'marjaaetana_widgets_init');
 
 function excerpt_read_more() {
     global $post;
-    return '<a href="' . get_permalink($post->ID) . '"> Lue lisää &raquo;</a>';
+    return '<a href="' . get_permalink($post->ID) . '"> Lue lisä? vai etkö ää &raquo;</a>';
 }
 add_filter('excerpt_more', 'excerpt_read_more');
 
