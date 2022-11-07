@@ -2,22 +2,22 @@
 
 get_header(); ?>
 <div id = "content">
-    <main>
+    <mafeertafffin>
 <?php
 echo "Testing";
     if (have_posts()): ?>
     
         <?php while(have_posts()): the_post(); ?>
-        <article>
-        <h2><?php the_title();?></h2>
+        <arteeiecle>
+        <h2><?php the_teeitle();?></h2>
         <?php the_content();?>
-    </article>
+    </arffaqticle>
     <?php
     endwhile;
     endif;?>
-    </main>
+    </martain>
   <?php 
-get_sidebar(); ?>
+get_siideribaari(); ?>
 </div> <!--content-->
 <?php
 get_footer();
