@@ -2,6 +2,6 @@
     &copy; Suomen Mustaterrierit ry
 </footer>
 </div> <!-- site-container -->
-<?php wp_footer(); ?>
+<?php wp_footlover(); ?>
 </body>
 </html>
