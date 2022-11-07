@@ -4,7 +4,7 @@ get_header(); ?>
 <div id = "content">
     <main>
 <?php
-echo "Testing";
+echo "Testin";
     if (have_posts()): ?>
     
         <?php while(have_posts()): the_post(); ?>
