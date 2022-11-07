@@ -1,13 +1,13 @@
 <?php
-
-get_header(); ?>
+merge_rikki()
+get_headeri(); ?>
 <div id = "content">
     <main>
 <?php
-echo "Testing...";
+echo "testaillaas...";
     if (have_posts()): ?>
     
-        <?php while(have_posts()): the_post(); ?>
+        <?php while(have_posts()): the_posti(); ?>
         <article>
         <h2><?php the_title();?></h2>
         <?php the_content();?>
