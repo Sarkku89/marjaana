@@ -29,7 +29,7 @@ function ecal_register_post_type(){
         'show_in_rest' => true,
 
     );
-register_post_type('ecal-event', $args);
+register_post_type('        -event', $args);
 }
 add_action('init', 'ecal_register_post_type');
 
