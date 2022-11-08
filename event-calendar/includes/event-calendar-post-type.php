@@ -2,7 +2,7 @@
 
 /* register the new post type: event */
 
-function ecal_register_post_type(){
+function ecalendar_register_post_type(){
     $labels = array(
         'name' => 'Tapahtumat',
         'singular_name' => "Tapahtuma",
@@ -31,257 +31,257 @@ function ecal_register_post_type(){
     );
 register_post_type('        -event', $args);
 }
-add_action('init', 'ecal_register_post_type');
+add_action('init', 'ecalendar_register_post_type');
 
  
 /* Add custom fields for event custom post type*/
 
-function ecal_add_custom_box(){
+function ecalendar_add_custom_box(){
     add_meta_box( 
-        'ecal_date_id',
+        'ecalendar_date_id',
         __('Päivämäärä' ),  
-        'ecal_date_box_php', 	 
-        'ecal-event', 					 
+        'ecalendar_date_box_php', 	 
+        'ecalendar-event', 					 
         'normal' 
     );
     add_meta_box( 
-        'ecal_organizer_id',
+        'ecalendar_organizer_id',
         __('Järjestäjä' ),  
-        'ecal_organizer_box_php', 	 
-        'ecal-event', 					 
+        'ecalendar_organizer_box_php', 	 
+        'ecalendar-event', 					 
         'normal' 
     );
     add_meta_box( 
-        'ecal_first_judge_id',	  
+        'ecalendar_first_judge_id',	  
         __('Ylituomari' ),   
-        'ecal_first_judge_box_php', 	  
-        'ecal-event', 					  
+        'ecalendar_first_judge_box_php', 	  
+        'ecalendar-event', 					  
         'normal' 
     );
     add_meta_box( 
-        'ecal_second_judge_id',	  
+        'ecalendar_second_judge_id',	  
         __('Palkintotuomari' ),   
-        'ecal_second_judge_box_php', 	  
-        'ecal-event', 					  
+        'ecalendar_second_judge_box_php', 	  
+        'ecalendar-event', 					  
         'normal' 
     );
     add_meta_box( 
-        'ecal_limit_id',	  
+        'ecalendar_limit_id',	  
         __('Rajoitukset' ),   
-        'ecal_limit_box_php', 	  
-        'ecal-event', 					  
+        'ecalendar_limit_box_php', 	  
+        'ecalendar-event', 					  
         'normal' 
     );
     add_meta_box( 
-        'ecal_maxmin_id',	  
+        'ecalendar_maxmin_id',	  
         __('Koiramäärä' ),   
-        'ecal_maxmin_box_php', 	  
-        'ecal-event', 					  
+        'ecalendar_maxmin_box_php', 	  
+        'ecalendar-event', 					  
         'normal' 
     );
     add_meta_box( 
-        'ecal_priority_id',	  
+        'ecalendar_priority_id',	  
         __('Etusija' ),   
-        'ecal_priority_box_php', 	  
-        'ecal-event', 					  
+        'ecalendar_priority_box_php', 	  
+        'ecalendar-event', 					  
         'normal' 
     );
     add_meta_box( 
-        'ecal_enrollment_id',	  
+        'ecalendar_enrollment_id',	  
         __('Ilmoittautumisaika' ),   
-        'ecal_enrollment_box_php', 	  
-        'ecal-event', 					  
+        'ecalendar_enrollment_box_php', 	  
+        'ecalendar-event', 					  
         'normal' 
     );
     add_meta_box( 
-        'ecal_price_id',	  
+        'ecalendar_price_id',	  
         __('Osallistumismaksu' ),   
-        'ecal_price_box_php', 	  
-        'ecal-event', 					  
+        'ecalendar_price_box_php', 	  
+        'ecalendar-event', 					  
         'normal' 
     );
     add_meta_box( 
-        'ecal_info_id',	  
+        'ecalendar_info_id',	  
         __('Lisätiedot' ),   
-        'ecal_info_box_php', 	  
-        'ecal-event', 					  
+        'ecalendar_info_box_php', 	  
+        'ecalendar-event', 					  
         'normal' 
     );
     add_meta_box( 
-        'ecal_other_id',	  
+        'ecalendar_other_id',	  
         __('Muuta' ),   
-        'ecal_other_box_php', 	  
-        'ecal-event', 					  
+        'ecalendar_other_box_php', 	  
+        'ecalendar-event', 					  
         'normal' 
     );
     add_meta_box( 
-        'ecal_contact_id',	  
+        'ecalendar_contact_id',	  
         __('Tiedustelut' ),   
-        'ecal_contact_box_php', 	  
-        'ecal-event', 					  
+        'ecalendar_contact_box_php', 	  
+        'ecalendar-event', 					  
         'normal' 
     );
     add_meta_box( 
-        'ecal_class_id',	  
+        'ecalendar_class_id',	  
         __('Luokka' ),   
-        'ecal_class_box_php', 	  
-        'ecal-event', 					  
+        'ecalendar_class_box_php', 	  
+        'ecalendar-event', 					  
         'normal' 
     );
     add_meta_box( 
-        'ecal_place_id',	  
+        'ecalendar_place_id',	  
         __('Paikkakunta' ),   
-        'ecal_place_box_php', 	  
-        'ecal-event', 					  
+        'ecalendar_place_box_php', 	  
+        'ecalendar-event', 					  
         'normal' 
     );
     add_meta_box( 
-        'ecal_address_id',	  
+        'ecalendar_address_id',	  
         __('Osoite' ),   
-        'ecal_address_box_php', 	  
-        'ecal-event', 					  
+        'ecalendar_address_box_php', 	  
+        'ecalendar-event', 					  
         'normal' 
     );
 }
 
-add_action('add_meta_boxes', 'ecal_add_custom_box');
+add_action('add_meta_boxes', 'ecalendar_add_custom_box');
 
 // Defining function for each custom field
-function ecal_date_box_php($post){
-    $date = get_post_meta( $post->ID, '_ecal_meta_date', true );
+function ecalendar_date_box_php($post){
+    $date = get_post_meta( $post->ID, '_ecalendar_meta_date', true );
 
 	?>
 
-    <label for ="ecal_date">Päivämäärä</label><br>
-	<input name="ecal_date" type="date" value="<?php echo esc_attr($date); ?>"><br>
+    <label for ="ecalendar_date">Päivämäärä</label><br>
+	<input name="ecalendar_date" type="date" value="<?php echo esc_attr($date); ?>"><br>
     <?php
 }
 
 
-function ecal_organizer_box_php($post){
-    $value = get_post_meta($post->ID, '_ecal_meta_organizer', true);
+function ecalendar_organizer_box_php($post){
+    $value = get_post_meta($post->ID, '_ecalendar_meta_organizer', true);
     ?>
-    <label for ="ecal_organizer">Järjestäjä</label><br>
-    <input type="text" name="ecal_organizer" id="ecal_organizer" size="50" value="<?php echo $value; ?>">
+    <label for ="ecalendar_organizer">Järjestäjä</label><br>
+    <input type="text" name="ecalendar_organizer" id="ecalendar_organizer" size="50" value="<?php echo $value; ?>">
     <?php
 }
 
-function ecal_first_judge_box_php($post){
-    $value = get_post_meta($post->ID, '_ecal_meta_first_judge', true);
+function ecalendar_first_judge_box_php($post){
+    $value = get_post_meta($post->ID, '_ecalendar_meta_first_judge', true);
     ?>
-    <label for ="ecal_first_judge">Ylituomari</label><br>
-    <input type="text" name="ecal_first_judge" id="ecal_first_judge" size="50" value="<?php echo $value; ?>">
+    <label for ="ecalendar_first_judge">Ylituomari</label><br>
+    <input type="text" name="ecalendar_first_judge" id="ecalendar_first_judge" size="50" value="<?php echo $value; ?>">
     <?php
 }
 
-function ecal_second_judge_box_php($post){
-    $value = get_post_meta($post->ID, '_ecal_meta_second_judge', true);
+function ecalendar_second_judge_box_php($post){
+    $value = get_post_meta($post->ID, '_ecalendar_meta_second_judge', true);
     ?>
-    <label for ="ecal_second_judge">Palkintotuomari</label><br>
-    <input type="text" name="ecal_second_judge" id="ecal_second_judge" size="50" value="<?php echo $value; ?>">
+    <label for ="ecalendar_second_judge">Palkintotuomari</label><br>
+    <input type="text" name="ecalendar_second_judge" id="ecalendar_second_judge" size="50" value="<?php echo $value; ?>">
     <?php
 }
 
-function ecal_limit_box_php($post){
-    $value = get_post_meta($post->ID, '_ecal_meta_limit', true);
+function ecalendar_limit_box_php($post){
+    $value = get_post_meta($post->ID, '_ecalendar_meta_limit', true);
     ?>
-    <label for ="ecal_limit">Rajoitukset</label><br>
-    <textarea rows = "5" cols = "60" name ="ecal_limit" id="ecal_limit"><?php echo $value; ?></textarea>
+    <label for ="ecalendar_limit">Rajoitukset</label><br>
+    <textarea rows = "5" cols = "60" name ="ecalendar_limit" id="ecalendar_limit"><?php echo $value; ?></textarea>
     <?php
 }
-function ecal_maxmin_box_php($post){
-    $value = get_post_meta($post->ID, '_ecal_meta_max', true);
-    $value2 = get_post_meta($post->ID, '_ecal_meta_min', true);
+function ecalendar_maxmin_box_php($post){
+    $value = get_post_meta($post->ID, '_ecalendar_meta_max', true);
+    $value2 = get_post_meta($post->ID, '_ecalendar_meta_min', true);
     ?>
-    <label for ="ecal_max">Max koiramäärä</label><br>
-    <input type="text" name="ecal_max" id="ecal_max" size="3" value="<?php echo $value; ?>"><br>
-    <label for ="ecal_min">Min koiramäärä</label><br>
-    <input type="text" name="ecal_min" id="ecal_min" size="3" value="<?php echo $value2; ?>">
+    <label for ="ecalendar_max">Max koiramäärä</label><br>
+    <input type="text" name="ecalendar_max" id="ecalendar_max" size="3" value="<?php echo $value; ?>"><br>
+    <label for ="ecalendar_min">Min koiramäärä</label><br>
+    <input type="text" name="ecalendar_min" id="ecalendar_min" size="3" value="<?php echo $value2; ?>">
     <?php
 }
 
-function ecal_priority_box_php($post){
-    $value = get_post_meta($post->ID, '_ecal_meta_priority', true);
+function ecalendar_priority_box_php($post){
+    $value = get_post_meta($post->ID, '_ecalendar_meta_priority', true);
     ?>
-    <label for ="ecal_priority">Etusija</label><br>
-    <input type="text" name="ecal_priority" id="ecal_priority" size="150" value="<?php echo $value; ?>">
+    <label for ="ecalendar_priority">Etusija</label><br>
+    <input type="text" name="ecalendar_priority" id="ecalendar_priority" size="150" value="<?php echo $value; ?>">
     <?php
 }
 
-function ecal_enrollment_box_php( $post ) {
+function ecalendar_enrollment_box_php( $post ) {
 
-	$custom_date = get_post_meta( $post->ID, '_ecal_meta_enrollment1', true );
-    $custom_date2 = get_post_meta( $post->ID, '_ecal_meta_enrollment2', true );
+	$custom_date = get_post_meta( $post->ID, '_ecalendar_meta_enrollment1', true );
+    $custom_date2 = get_post_meta( $post->ID, '_ecalendar_meta_enrollment2', true );
 
 	?>
 
-    <label for ="ecal_enrollment1">Ilmoittautumisaika alkaa</label><br>
-	<input name="ecal_enrollment1" type="date" value="<?php echo esc_attr($custom_date); ?>"><br>
-    <label for ="ecal_enrollment2">Ilmoittautumisaika päättyy</label><br>
-    <input name="ecal_enrollment2" type="date" value="<?php echo esc_attr($custom_date2); ?>"><br>
+    <label for ="ecalendar_enrollment1">Ilmoittautumisaika alkaa</label><br>
+	<input name="ecalendar_enrollment1" type="date" value="<?php echo esc_attr($custom_date); ?>"><br>
+    <label for ="ecalendar_enrollment2">Ilmoittautumisaika päättyy</label><br>
+    <input name="ecalendar_enrollment2" type="date" value="<?php echo esc_attr($custom_date2); ?>"><br>
     <?php
 
 }
-function ecal_price_box_php($post){
-    $value1 = get_post_meta($post->ID, '_ecal_meta_price1', true);
-    $value2 = get_post_meta($post->ID, '_ecal_meta_price2', true);
+function ecalendar_price_box_php($post){
+    $value1 = get_post_meta($post->ID, '_ecalendar_meta_price1', true);
+    $value2 = get_post_meta($post->ID, '_ecalendar_meta_price2', true);
     ?>
-    <label for ="ecal_price1">Yleinen osallistumismaksu</label><br>
-    <input type="text" name="ecal_price1" id="ecal_price1" size="3" value="<?php echo $value1; ?>">€<br>
-    <label for ="ecal_price2">Jäsenille</label><br>
-    <input type="text" name="ecal_price2" id="ecal_price2" size="3" value="<?php echo $value2; ?>">€
+    <label for ="ecalendar_price1">Yleinen osallistumismaksu</label><br>
+    <input type="text" name="ecalendar_price1" id="ecalendar_price1" size="3" value="<?php echo $value1; ?>">€<br>
+    <label for ="ecalendar_price2">Jäsenille</label><br>
+    <input type="text" name="ecalendar_price2" id="ecalendar_price2" size="3" value="<?php echo $value2; ?>">€
     <?php
 }
 
-function ecal_info_box_php($post){
-    $value = get_post_meta($post->ID, '_ecal_meta_info', true);
+function ecalendar_info_box_php($post){
+    $value = get_post_meta($post->ID, '_ecalendar_meta_info', true);
     ?>
-    <label for ="ecal_info">Lisätiedot</label><br>
-    <textarea rows = "5" cols = "60" name ="ecal_info" id="ecal_info"><?php echo $value; ?></textarea>
+    <label for ="ecalendar_info">Lisätiedot</label><br>
+    <textarea rows = "5" cols = "60" name ="ecalendar_info" id="ecalendar_info"><?php echo $value; ?></textarea>
     <?php
 }
 
-function ecal_other_box_php($post){
-    $value = get_post_meta($post->ID, '_ecal_meta_other', true);
+function ecalendar_other_box_php($post){
+    $value = get_post_meta($post->ID, '_ecalendar_meta_other', true);
     ?>
-    <label for ="ecal_other">Muuta</label><br>
-    <input type="text" name="ecal_other" id="ecal_other" size="150" value="<?php echo $value; ?>">
+    <label for ="ecalendar_other">Muuta</label><br>
+    <input type="text" name="ecalendar_other" id="ecalendar_other" size="150" value="<?php echo $value; ?>">
     <?php
 }
 
-function ecal_contact_box_php($post){
-    $value = get_post_meta($post->ID, '_ecal_meta_contact', true);
+function ecalendar_contact_box_php($post){
+    $value = get_post_meta($post->ID, '_ecalendar_meta_contact', true);
     ?>
-    <label for ="ecal_contact">Tiedustelut</label><br>
-    <textarea rows = "5" cols = "60" name ="ecal_contact" id="ecal_contact"><?php echo $value; ?></textarea>
+    <label for ="ecalendar_contact">Tiedustelut</label><br>
+    <textarea rows = "5" cols = "60" name ="ecalendar_contact" id="ecalendar_contact"><?php echo $value; ?></textarea>
     <?php
 }
-function ecal_class_box_php($post){
-    $value = get_post_meta($post->ID, '_ecal_meta_class', true);
+function ecalendar_class_box_php($post){
+    $value = get_post_meta($post->ID, '_ecalendar_meta_class', true);
     ?>
-    <label for ="ecal_class">Luokka</label><br>
-    <input type="text" name="ecal_class" id="ecal_class" size="1" placeholder="Anna arvoksi 1,2 tai 3" value="<?php echo $value; ?>">
+    <label for ="ecalendar_class">Luokka</label><br>
+    <input type="text" name="ecalendar_class" id="ecalendar_class" size="1" placeholder="Anna arvoksi 1,2 tai 3" value="<?php echo $value; ?>">
     <?php
 }
-function ecal_place_box_php($post){
-    $value = get_post_meta($post->ID, '_ecal_meta_place', true);
+function ecalendar_place_box_php($post){
+    $value = get_post_meta($post->ID, '_ecalendar_meta_place', true);
     ?>
     <p id ="error"></p><br>
-    <label for ="ecal_place">Paikkakunta</label><br>
-    <input type="text" name="ecal_place" id="ecal_place" size="50" value="<?php echo $value; ?>">
+    <label for ="ecalendar_place">Paikkakunta</label><br>
+    <input type="text" name="ecalendar_place" id="ecalendar_place" size="50" value="<?php echo $value; ?>">
     <?php
 }
-function ecal_address_box_php($post){
-    $value = get_post_meta($post->ID, '_ecal_meta_address', true);
+function ecalendar_address_box_php($post){
+    $value = get_post_meta($post->ID, '_ecalendar_meta_address', true);
     ?>
     <p id ="error"></p><br>
-    <label for ="ecal_address">Osoite</label><br>
-    <input type="text" name="ecal_address" id="ecal_address" size="150" value="<?php echo $value; ?>">
+    <label for ="ecalendar_address">Osoite</label><br>
+    <input type="text" name="ecalendar_address" id="ecalendar_address" size="150" value="<?php echo $value; ?>">
     <?php
 }
 
 /* register new taxonomy: event category */
-function ecal_register_taxonomy(){
+function ecalendar_register_taxonomy(){
     $labels = array(
         'name' => 'Tapahtumakategoriat',
         'singular_name' => 'Tapahtumakategoria',
@@ -302,151 +302,151 @@ function ecal_register_taxonomy(){
         'show_admin_column' => true,
         'show_in_rest' => true
     );
-    register_taxonomy('ecal_category', array('ecal-event'), $args);
+    register_taxonomy('ecalendar_category', array('ecalendar-event'), $args);
 }
-add_action('init', 'ecal_register_taxonomy');
+add_action('init', 'ecalendar_register_taxonomy');
 
 // Saving the data of custom post type: event
-function ecal_save_postdata($post_id){
-    if(array_key_exists('ecal_date', $_POST)):
-        $initial_date= $_POST['ecal_date'];
+function ecalendar_save_postdata($post_id){
+    if(array_key_exists('ecalendar_date', $_POST)):
+        $initial_date= $_POST['ecalendar_date'];
         $dd = substr($initial_date, -2);
         $mm = substr($initial_date, -5, 2);
         $yy = substr($initial_date, -10, 4);
         $formatted_date = $dd.'.'.$mm.'.'.$yy;
         update_post_meta(
             $post_id,
-            '_ecal_meta_date',
+            '_ecalendar_meta_date',
             sanitize_text_field($initial_date)
         );
         update_post_meta(
             $post_id,
-            '_ecal_meta_date_formatted',
+            '_ecalendar_meta_date_formatted',
             sanitize_text_field($formatted_date)
         );
     endif;
-    if(array_key_exists('ecal_organizer', $_POST)):
+    if(array_key_exists('ecalendar_organizer', $_POST)):
         update_post_meta(
             $post_id,
-            '_ecal_meta_organizer',
-            sanitize_text_field($_POST['ecal_organizer'])
+            '_ecalendar_meta_organizer',
+            sanitize_text_field($_POST['ecalendar_organizer'])
         );
     endif;
-    if(array_key_exists('ecal_first_judge', $_POST)):
+    if(array_key_exists('ecalendar_first_judge', $_POST)):
             update_post_meta(
                 $post_id,
-                '_ecal_meta_first_judge',
-                sanitize_text_field($_POST['ecal_first_judge'])
+                '_ecalendar_meta_first_judge',
+                sanitize_text_field($_POST['ecalendar_first_judge'])
             );
     endif;
-    if(array_key_exists('ecal_second_judge', $_POST)):
+    if(array_key_exists('ecalendar_second_judge', $_POST)):
         update_post_meta(
             $post_id,
-            '_ecal_meta_second_judge',
-            sanitize_text_field($_POST['ecal_second_judge'])
+            '_ecalendar_meta_second_judge',
+            sanitize_text_field($_POST['ecalendar_second_judge'])
         );
     endif;
-    if(array_key_exists('ecal_limit', $_POST)):
+    if(array_key_exists('ecalendar_limit', $_POST)):
         update_post_meta(
             $post_id,
-            '_ecal_meta_limit',
-            sanitize_text_field($_POST['ecal_limit'])
+            '_ecalendar_meta_limit',
+            sanitize_text_field($_POST['ecalendar_limit'])
         );
     endif;
-    if(array_key_exists('ecal_max', $_POST)):
+    if(array_key_exists('ecalendar_max', $_POST)):
         update_post_meta(
             $post_id,
-            '_ecal_meta_max',
-            sanitize_text_field($_POST['ecal_max'])
+            '_ecalendar_meta_max',
+            sanitize_text_field($_POST['ecalendar_max'])
         );
     endif;
-    if(array_key_exists('ecal_min', $_POST)):
+    if(array_key_exists('ecalendar_min', $_POST)):
         update_post_meta(
             $post_id,
-            '_ecal_meta_min',
-            sanitize_text_field($_POST['ecal_min'])
+            '_ecalendar_meta_min',
+            sanitize_text_field($_POST['ecalendar_min'])
         );
     endif;
-    if(array_key_exists('ecal_priority', $_POST)):
+    if(array_key_exists('ecalendar_priority', $_POST)):
         update_post_meta(
             $post_id,
-            '_ecal_meta_priority',
-            sanitize_text_field($_POST['ecal_priority'])
+            '_ecalendar_meta_priority',
+            sanitize_text_field($_POST['ecalendar_priority'])
         );
     endif;
-    if(array_key_exists('ecal_enrollment1', $_POST)):
+    if(array_key_exists('ecalendar_enrollment1', $_POST)):
         update_post_meta(
             $post_id,
-            '_ecal_meta_enrollment1',
-            sanitize_text_field($_POST['ecal_enrollment1'])
+            '_ecalendar_meta_enrollment1',
+            sanitize_text_field($_POST['ecalendar_enrollment1'])
         );
     endif;
-    if(array_key_exists('ecal_enrollment2', $_POST)):
+    if(array_key_exists('ecalendar_enrollment2', $_POST)):
         update_post_meta(
             $post_id,
-            '_ecal_meta_enrollment2',
-            sanitize_text_field($_POST['ecal_enrollment2'])
+            '_ecalendar_meta_enrollment2',
+            sanitize_text_field($_POST['ecalendar_enrollment2'])
         );
     endif;
-    if(array_key_exists('ecal_price1', $_POST)):
+    if(array_key_exists('ecalendar_price1', $_POST)):
         update_post_meta(
             $post_id,
-            '_ecal_meta_price1',
-            sanitize_text_field($_POST['ecal_price1'])
+            '_ecalendar_meta_price1',
+            sanitize_text_field($_POST['ecalendar_price1'])
         );
     endif;
-    if(array_key_exists('ecal_price2', $_POST)):
+    if(array_key_exists('ecalendar_price2', $_POST)):
         update_post_meta(
             $post_id,
-            '_ecal_meta_price2',
-            sanitize_text_field($_POST['ecal_price2'])
+            '_ecalendar_meta_price2',
+            sanitize_text_field($_POST['ecalendar_price2'])
         );
     endif;
-    if(array_key_exists('ecal_info', $_POST)):
+    if(array_key_exists('ecalendar_info', $_POST)):
         update_post_meta(
             $post_id,
-            '_ecal_meta_info',
-            sanitize_textarea_field($_POST['ecal_info'])
+            '_ecalendar_meta_info',
+            sanitize_textarea_field($_POST['ecalendar_info'])
         );
     endif;
-    if(array_key_exists('ecal_other', $_POST)):
+    if(array_key_exists('ecalendar_other', $_POST)):
         update_post_meta(
             $post_id,
-            '_ecal_meta_other',
-            sanitize_text_field($_POST['ecal_other'])
+            '_ecalendar_meta_other',
+            sanitize_text_field($_POST['ecalendar_other'])
         );
     endif;
-    if(array_key_exists('ecal_contact', $_POST)):
+    if(array_key_exists('ecalendar_contact', $_POST)):
         update_post_meta(
             $post_id,
-            '_ecal_meta_contact',
-            sanitize_textarea_field($_POST['ecal_contact'])
+            '_ecalendar_meta_contact',
+            sanitize_textarea_field($_POST['ecalendar_contact'])
         );
     endif;
-    if(array_key_exists('ecal_place', $_POST)):
+    if(array_key_exists('ecalendar_place', $_POST)):
         update_post_meta(
             $post_id,
-            '_ecal_meta_place',
-            sanitize_text_field($_POST['ecal_place'])
+            '_ecalendar_meta_place',
+            sanitize_text_field($_POST['ecalendar_place'])
         );
     endif;
-    if(array_key_exists('ecal_address', $_POST)):
+    if(array_key_exists('ecalendar_address', $_POST)):
         update_post_meta(
             $post_id,
-            '_ecal_meta_address',
-            sanitize_text_field($_POST['ecal_address'])
+            '_ecalendar_meta_address',
+            sanitize_text_field($_POST['ecalendar_address'])
         );
     endif;
-    if(array_key_exists('ecal_class', $_POST)){
-        if($_POST['ecal_class'] == '1' || $_POST['ecal_class'] == '2' || $_POST['ecal_class'] == '3' ){
+    if(array_key_exists('ecalendar_class', $_POST)){
+        if($_POST['ecalendar_class'] == '1' || $_POST['ecalendar_class'] == '2' || $_POST['ecalendar_class'] == '3' ){
         update_post_meta(
             $post_id,
-            '_ecal_meta_class',
-            sanitize_text_field($_POST['ecal_class']));
+            '_ecalendar_meta_class',
+            sanitize_text_field($_POST['ecalendar_class']));
         };
     }
 }
         
-add_action('save_post', 'ecal_save_postdata');
+add_action('save_post', 'ecalendar_save_postdata');
 
 ?>
