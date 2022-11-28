@@ -251,7 +251,12 @@ table#kek-kokeet, table#kek-kokeet th, table#kek-kokeet td{
     border-radius: 2px;
     }
     
+#mydogs{
+    text-align: left;}
 
+table#competitionclasses, table#competitionclasses tr, table#competitionclasses th, table#competitionclasses td{
+    border: 1px solid black;
+}
 
 @media only screen and (max-width: 950px){
     #content #news-box{
