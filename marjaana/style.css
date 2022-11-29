@@ -8,32 +8,31 @@ Theme author: SEM GROUP 8
 }
 body{
     margin: 0;
-    background-color: lightgrey;
+    background-color: rgba(218, 248, 224, 1);
 }
 
 #site-container {
     background-color: white;
     max-width: 1500px;
-    margin-right: auto;
-    margin-left: auto;
+    margin-left: 70px;
+    margin-right: 70px;
     padding-top: 10px;
 }
 
 #site-header{
     width: 100%;
-    background-color:green;
-    padding-top: 50px;
-    padding-bottom: 50px;
     text-align: center;
+    color:rgba(86, 212, 114, 1);
 }
 #top-navi h1{
     color: white;
-    font-size: 3.0em;
+    font-size: 1.7em;
+    margin-top: 20px;
     margin-left: 20px;
     flex-wrap: wrap;
 }
 #top-navi {
-    background-color: green;
+    background-color: rgba(86, 212, 114, 1);
     margin: 0;
     
 }
@@ -43,15 +42,13 @@ body{
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 }
 #top-navi ul li{
     position: relative;
-    
-
+    margin: auto;
 }
 #top-navi >div > ul > li:first-child{
-    display: none;
+    font-size:x-large;
 }
 #top-navi ul li a{
     text-decoration: none;
@@ -76,12 +73,12 @@ body{
 }
 
 #top-navi ul li:hover{
-    background-color: darkgreen;
-    filter: drop-shadow(3px 3px 2px gray);
+    color:rgba(55, 146, 75, 1);
+    filter: drop-shadow(3px 3px 2px rgba(55, 146, 75, 1)) ;
 }
 
 #top-navi .sub-menu li{
-    background-color: green;
+    background-color: rgba(86, 212, 114, 1);
     display: block;
     width: 100%;
 }
@@ -91,17 +88,19 @@ body{
     display: flex;
 }
 #content main {
-    width: 70%;
-    padding: 10px;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 50px
 }
 
 #content main article {
-    border-bottom: 1px dashed #808080;
     margin: 30px;
 }
 
 #content main article h2{
-    font-size: 2.0em;
+    text-align: center;
+    color:rgba(86, 212, 114, 1);
+
 }
 #content main article p{
     font-size: 1.1em;
@@ -113,24 +112,24 @@ body{
 
 #content main a {
     text-decoration: none;
-    color: green;
+    color: rgba(86, 212, 114, 1);
     font-weight: bold;
 }
 
 #content main h1 a, #content main h2 a{
     text-decoration: none;
-    color: black;
+    color: white;
 }
 #pagetitle{
     margin: 30px 0px 0px 30px;
     font-size: 2.0em;
 }
 #content main a:hover {
-    color: green;
+    color: rgba(55, 146, 75, 1);
 }
 
 #content main h1 a:hover, #content main h2 a:hover{
-    color: green;
+    color: rgba(55, 146, 75, 1);
 }
 
 #content main .date-category, #content #news-box .date{
@@ -146,30 +145,32 @@ body{
     margin-right: 30px;
     padding-right: 10px;
     padding-left: 10px;
-    min-height: 70%;
+    min-height: 100%;
 
 }
 
 #content #front-page #fp-text{
-    width: 100%;
+    text-align: center;
 }
 
 #content main #front-page #front-page-img{
     display: flex;
-    width: 50%;
+    width: 70%;
     border-radius: 10px;
     margin: 10px;
-    margin-left: 0;
+    margin-top: 35px;
 }
 
 #content main #front-page p{
-    margin: 10px;
+    margin: 30px;
     font-size: 1.2em;
+    width:fit-content;
 
 }
 #content main #front-page h2{
-    margin: 10px;
+    justify-content: center;
     font-size: 2.0em;
+    color: rgba(86, 212, 114, 1);
 }
 
 #content #news-box .news{
@@ -213,49 +214,30 @@ body{
 #activity-box section:nth-child(3){
    padding-right: 0px;
 }
-#sidebar {
-    width: 30%;
-    padding: 10px;
-}
-#content #sidebar a{
-    color: green;
-    text-decoration: none;
-    font-size: 1.3em;
-}
 
-#content #sidebar a:hover {
-    color: darkgreen;
-}
-#content #sidebar h2, #content #sidebar h1{
-    background-color: green;
-    color: white;
-    font-size: 1.25em;
-    padding: 10px;
-    border-radius: 20px;
-}
-#content #sidebar > div:first-child > h2 {
-    margin-top: 5px;
-}
 #site-footer {
-    background-color: green;
+    background-color: rgba(86, 212, 114, 1);
     color: white;
     font-weight: bold;
-    padding: 10px;
+    padding: 6px;
     text-align: center;
     margin:0;
+    flex: 100%;
 
 }
 
-table#kek-kokeet, table#kek-kokeet th, table#kek-kokeet td{
-    border: 1px solid black;
-    border-radius: 2px;
+table#kek-kokeet {
+    background-color: rgba(218, 248, 224, 1);
+    color:rgba(55, 146, 75, 1);
+    width: 100%;
     }
     
-#mydogs{
-    text-align: left;}
-
-table#competitionclasses, table#competitionclasses tr, table#competitionclasses th, table#competitionclasses td{
-    border: 1px solid black;
+table#kek-kokeet th {
+    text-align: left;
+    }
+    
+table#kek-kokeet td {
+    background-color: white;
 }
 
 @media only screen and (max-width: 950px){
