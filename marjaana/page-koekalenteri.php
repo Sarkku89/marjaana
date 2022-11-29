@@ -51,8 +51,8 @@ if( $kek_events->have_posts() ) {
        ?>
        
        <tr id="<?php echo $bid;?>">
-        <input type="hidden" id="baserow_id" value="<?php echo $bid ?>">
-        <input type="hidden" id="subrow_id" value="<?php echo $id ?>">
+        <td style="display:none;"><input type="hidden" id="baserow_id" value="<?php echo $bid ?>"></td>
+        <td style="display:none;"><input type="hidden" id="subrow_id" value="<?php echo $id ?>"></td>
         <td><?php echo get_post_meta($post->ID, '_ecalendar_meta_date_formatted', true);?></td>
         <td><?php echo get_post_meta($post->ID, '_ecalendar_meta_place', true);?></td>
         <td><?php echo get_post_meta($post->ID, '_ecalendar_meta_class', true);?></td>
