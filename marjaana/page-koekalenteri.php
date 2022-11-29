@@ -15,8 +15,7 @@ get_header(); ?>
     <?php
     endwhile;
     endif;?>
-<div id="kekdiv">
-<h2>Kaikkien etsintämuotojen kokeet</h2>
+<h3 style="color: rgba(55, 146, 75, 1)">Kaikkien etsintämuotojen kokeet</h3>
 <table id="kek-kokeet">
     <tr>
         <th>Päivämäärä</th>
@@ -24,8 +23,7 @@ get_header(); ?>
         <th>Luokka</th>
         <th>Järjestäjä</th>
         <th>Status</th>
-
-</tr>
+    </tr>
 <?php 
 
 // Creating dynamic table for trials. Each post will create new row and subrow.
