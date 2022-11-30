@@ -19,4 +19,3 @@ function ecalendar_display_admin_page(){
 }
 add_action('admin_menu', 'ecalendar_setup_menu');
 ?>
-

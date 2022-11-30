@@ -7,6 +7,7 @@
 </head>
 <body <?php body_class(); ?>>
 <nav id="top-navi">
+<h1>Marjaana</h1>
             <?php wp_nav_menu(['theme_location' => 'primary']); ?>
 </nav>
         
