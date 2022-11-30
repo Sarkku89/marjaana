@@ -67,7 +67,7 @@ $cc_yeka = get_post_meta($post->ID, '_adogs_meta_yekac', true);
 
  ?>
  
-<h4>Koeluokat</h4>
+<h4 style="color: rgba(55, 146, 75, 1); display: inline;">Koeluokat</h4>
 <table id="competitionclasses">
     <tr>
         <th>Luokka</th>
@@ -105,7 +105,7 @@ $cc_yeka = get_post_meta($post->ID, '_adogs_meta_yekac', true);
     
     </table>
     <br>
-    <hr></hr>
+    <hr style="color: rgba(86, 212, 114, 1)"></hr>
 <?php
 }}
   wp_reset_postdata()

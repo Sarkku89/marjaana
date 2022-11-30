@@ -239,13 +239,39 @@ table#kek-kokeet th {
 table#kek-kokeet td {
     background-color: white;
 }
-
+#mydogsdiv{
+    justify-content: center;
+}
 #mydogs{
+    text-align: left;
+    float: left;
+}
+table#mydogs th{
+    color:rgba(55, 146, 75, 1)
+}
+table#mydogs td{
     text-align: left;
 }
 
-table#competitionclasses, table#competitionclasses tr, table#competitionclasses th, table#competitionclasses td{
-    border: 1px solid black;
+table#competitionclasses{
+    border: 1px solid rgba(55, 146, 75, 1);
+    background-color:rgba(86, 212, 114, 1);
+    text-align: center; 
+    border-radius: 5px;
+    width: 50%;
+}
+table#competitionclasses th{
+    background-color:rgba(86, 212, 114, 1);
+    color: white;   
+}
+table#competitionclasses tr{
+    border: 1px solid white;
+    
+}
+table#competitionclasses td{
+    border: 1px solid rgba(86, 212, 114, 1);  
+    background-color: white; 
+    border-radius: 5px;
 }
 
 @media only screen and (max-width: 950px){
