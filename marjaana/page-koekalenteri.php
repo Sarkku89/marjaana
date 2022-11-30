@@ -15,15 +15,17 @@ get_header(); ?>
     <?php
     endwhile;
     endif;?>
-<h3 style="color: rgba(55, 146, 75, 1)">Kaikkien etsintämuotojen kokeet</h3>
+<div id="kekdiv">
+<h2>Kaikkien etsintämuotojen kokeet</h2>
 <table id="kek-kokeet">
     <tr>
-        <th>Päivämäärä</th>
+        <th colspan="2">Päivämäärä</th>
         <th>Paikkakunta</th>
         <th>Luokka</th>
         <th>Järjestäjä</th>
         <th>Status</th>
-    </tr>
+
+</tr>
 <?php 
 
 // Creating dynamic table for trials. Each post will create new row and subrow.
@@ -53,6 +55,7 @@ if( $kek_events->have_posts() ) {
        <tr id="<?php echo $bid;?>">
         <td style="display:none;"><input type="hidden" id="baserow_id" value="<?php echo $bid ?>"></td>
         <td style="display:none;"><input type="hidden" id="subrow_id" value="<?php echo $id ?>"></td>
+        <td><button class="nuoli" onclick="toggling(<?php echo $post->ID ?>)">&#9660;</button></td>
         <td><?php echo get_post_meta($post->ID, '_ecalendar_meta_date_formatted', true);?></td>
         <td><?php echo get_post_meta($post->ID, '_ecalendar_meta_place', true);?></td>
         <td><?php echo get_post_meta($post->ID, '_ecalendar_meta_class', true);?></td>

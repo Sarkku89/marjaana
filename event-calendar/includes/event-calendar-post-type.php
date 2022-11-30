@@ -22,8 +22,8 @@ function ecalendar_register_post_type(){
         'public' => true,
         'hierarchical' => false,
         'supports' => array(
-            
-            'custom-fields'
+            'custom-fields',
+            'title'
         ),
         'rewrite' => array('slug' => 'tapahtuma'),
         'show_in_rest' => true,
@@ -145,6 +145,12 @@ function ecalendar_add_custom_box(){
 }
 
 add_action('add_meta_boxes', 'ecalendar_add_custom_box');
+// Removing post title from the editor
+
+add_action('init', 'my_rem_editor_from_post_type');
+function my_rem_editor_from_post_type() {
+    remove_post_type_support( 'ecalendar-event', 'title' );
+}
 
 // Defining function for each custom field
 function ecalendar_date_box_html($post){
@@ -257,11 +263,16 @@ function ecalendar_contact_box_html($post){
     <?php
 }
 function ecalendar_class_box_html($post){
-    $value = get_post_meta($post->ID, '_ecalendar_meta_class', true);
-    ?>
-    <label for ="ecalendar_class">Luokka</label><br>
-    <input type="text" name="ecalendar_class" id="ecalendar_class" size="1" placeholder="Anna arvoksi 1,2 tai 3" value="<?php echo $value; ?>">
-    <?php
+        $value = get_post_meta($post->ID, '_ecalendar_meta_class', true);
+
+        ?>
+        <label for="cc_yeks">Luokka</label>
+        <input type="checkbox" name="ecalendar_class" value="1" <?php echo (($value=='1') ? 'checked="checked"': '');?>/> 1
+        <input type="checkbox" name="ecalendar_class" value="2" <?php echo (($value=='2') ? 'checked="checked"': '');?>/> 2
+        <input type="checkbox" name="ecalendar_class" value="3" <?php echo (($value=='3') ? 'checked="checked"': '');?>/> 3
+           
+        <?php
+    
 }
 function ecalendar_place_box_html($post){
     $value = get_post_meta($post->ID, '_ecalendar_meta_place', true);
@@ -437,16 +448,36 @@ function ecalendar_save_postdata($post_id){
             sanitize_text_field($_POST['ecalendar_address'])
         );
     endif;
-    if(array_key_exists('ecalendar_class', $_POST)){
-        if($_POST['ecalendar_class'] == '1' || $_POST['ecalendar_class'] == '2' || $_POST['ecalendar_class'] == '3' ){
+    if(array_key_exists('ecalendar_class', $_POST)):
         update_post_meta(
             $post_id,
             '_ecalendar_meta_class',
-            sanitize_text_field($_POST['ecalendar_class']));
-        };
-    }
-}
-        
+            sanitize_text_field($_POST['ecalendar_class'])
+        );
+    endif;
+    
+    $initial_date= $_POST['ecalendar_date'];
+    $dd = substr($initial_date, -2);
+    $mm = substr($initial_date, -5, 2);
+    $yy = substr($initial_date, -10, 4);
+    $formatted_date = $dd.'.'.$mm.'.'.$yy;
+
+    $title = $formatted_date.' '. $_POST['ecalendar_place'].' '.$_POST['ecalendar_class'].'.LK';
+    update_post_meta( $post_id, 'gen_title', $title );
+    
+   
+ }
+ 
 add_action('save_post', 'ecalendar_save_postdata');
 
+function set_event_title($data)
+{
+    if('ecalendar-event' != $data['post-type'])
+        return $data;
+
+    $data['post_title'] = $data['_ecalendar_meta_place'];
+
+    return $data;
+}
+add_filter('wp_insert_post_data', 'set_event_title');
 ?>

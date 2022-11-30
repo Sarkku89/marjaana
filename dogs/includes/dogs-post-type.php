@@ -2,6 +2,7 @@
 echo // First try loading jQuery from Google's CDN
 '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>';
 
+// List of dog breeds by fci groups & functions for displaying them as select options
 echo '<script language="javascript">
 const fci1 = ["ardennienkarjakoira", "australiankarjakoira", "australiankelpie", "australianpaimenkoira", "australian töpöhäntäinen karjakoira", "beauceron", 
 "belgianpaimenkoira, groenendael", "belgianpaimenkoira, laekenois", "belgianpaimenkoira, malinois", "belgianpaimenkoira, tervueren", "bergamasco", 
@@ -12,19 +13,36 @@ const fci1 = ["ardennienkarjakoira", "australiankarjakoira", "australiankelpie",
 "saarloos wolfhond", "saksanpaimenkoira, pitkäkarvainen", "saksanpaimenkoira", "schapendoes", "schipperke", "serra de airesinpaimenkoira",
 "shetlanninlammaskoira", "sileäkarvainen collie", "slovakiancuvac", "tsekinpaimenkoira", "valkoinenpaimenkoira", "vanhaenglanninlammaskoira", "welsh corgi cardigan", "welsh corgi pembroke"
 ];
+const fci2 = ["affenpinseri","aidi","alentejonkoira","anatolianpaimenkoira ","appenzellinpaimenkoira","bernhardinkoira, lyhytkarvainen","bernhardinkoira, pitkäkarvainen",
+"berninpaimenkoira","bokseri","bordeauxindoggi","broholminkoira","bukovinankoira","bullmastiffi","cane corso","cao de castro laboreiro",
+"dobermanni","dogo argentino","englanninbulldoggi","entlebuchinpaimenkoira","espanjanmastiffi","estrelanvuoristokoira, lyhytkarvainen","estrelanvuoristokoira, pitkäkarvainen",
+"fila brasileiro","hollanninrottakoira","hovawart","isosveitsinpaimenkoira","itävallanpinseri","kanariandoggi","karstinpaimenkoira",
+"kaukasiankoira","keskiaasiankoira","kääpiöpinseri","kääpiösnautseri","landseer","leonberginkoira",
+"mallorcandoggi","mastiffi","napolinmastiffi","newfoundlandinkoira","pinseri","pyreneittenkoira","pyreneittenmastiffi","rottweiler","sao miguelinfila","sarplaninac","shar pei",
+"snautseri","tanskalais-ruotsalainen pihakoira","tanskandoggi","tiibetinmastiffi","tornjak","tosa","uruguayan cimarron","venäjänmustaterrieri"
+];
 
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
 
-    jQuery("#adogs_fcigroup").change(function(){
+    jQuery("#adogs_fcigroup").change(function () {
         let value = jQuery("#adogs_fcigroup").find("option:selected").val();
-        if(value = "fci1"){
-          for(let i = 0; i < fci1.length; i++) {
-            let breedname = fci1[i];
-            let html = `<option value="${breedname}">${breedname}</option>`
-          jQuery("#adogs_breed").append(html);
+        if (value = "fci1") {
+            for (let i = 0; i < fci1.length; i++) {
+                let breedname = fci1[i];
+                let html = `<option value="${breedname}">${breedname}</option>`
+                jQuery("#adogs_breed").append(html);
             }
-      }})
-  });
+        }
+        if (value = "fci2") {
+            for (let i = 0; i < fci2.length; i++) {
+                let breedname = fci2[i];
+                let html = `<option value="${breedname}">${breedname}</option>`
+                jQuery("#adogs_breed").append(html);
+
+            }
+        }
+    })
+});
 
 function getTheBreed(){
     let value = jQuery("#adogs_breed").find("option:selected").val();
