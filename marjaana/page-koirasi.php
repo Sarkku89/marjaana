@@ -6,11 +6,9 @@ echo "<script>function dog_modify_redirection(){
 
 get_header(); ?>
 <div id = "content">
-    <main>
-        
+    <main>        
 <?php
-    if (have_posts()): ?>
-    
+    if (have_posts()): ?>  
         <?php while(have_posts()): the_post(); ?>
         <article>
         <h2><?php the_title();?></h2>
@@ -85,7 +83,7 @@ $cc_yeka = get_post_meta($post->ID, '_adogs_meta_yekac', true);
 
  ?>
  
-<h4>Koeluokat</h4>
+<h4 style="color: rgba(55, 146, 75, 1); display: inline;">Koeluokat</h4>
 <table id="competitionclasses">
     <tr>
         <th>Luokka</th>
@@ -129,6 +127,8 @@ $cc_yeka = get_post_meta($post->ID, '_adogs_meta_yekac', true);
                 value="Muokkaa"/>
     </form>
 
+    <br>
+    <hr style="color: rgba(86, 212, 114, 1)"></hr>
 <?php
 
 }}}

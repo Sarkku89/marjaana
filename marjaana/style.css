@@ -42,20 +42,22 @@ body{
     padding: 0;
     display: flex;
     flex-wrap: wrap;
+    
 }
 #top-navi ul li{
     position: relative;
     margin: auto;
+    font-size: small;
 }
 #top-navi >div > ul > li:first-child{
-    font-size:x-large;
+    font-size:large;
 }
 #top-navi ul li a{
     text-decoration: none;
     color:white;
     font-weight: bold;
     display: block;
-    padding: 20px 30px;
+    padding: 10px;
     margin: 0;
     text-align: center;
     font-size: 1.3em;
@@ -100,12 +102,10 @@ body{
 #content main article h2{
     text-align: center;
     color:rgba(86, 212, 114, 1);
-
 }
 #content main article p{
     font-size: 1.1em;
 }
-#co
 #content main article:last-child, #content main article:only-child{
     border-bottom: none;
 }
@@ -115,15 +115,17 @@ body{
     color: rgba(86, 212, 114, 1);
     font-weight: bold;
 }
+#content main b {
+    text-decoration: none;
+    color: rgba(55, 146, 75, 1);
+    font-weight: bold;
+}
 
 #content main h1 a, #content main h2 a{
     text-decoration: none;
     color: white;
 }
-#pagetitle{
-    margin: 30px 0px 0px 30px;
-    font-size: 2.0em;
-}
+
 #content main a:hover {
     color: rgba(55, 146, 75, 1);
 }
@@ -151,11 +153,12 @@ body{
 
 #content #front-page #fp-text{
     text-align: center;
+    width: 50%;
 }
 
 #content main #front-page #front-page-img{
     display: flex;
-    width: 70%;
+    width: 50%;
     border-radius: 10px;
     margin: 10px;
     margin-top: 35px;
@@ -171,35 +174,6 @@ body{
     justify-content: center;
     font-size: 2.0em;
     color: rgba(86, 212, 114, 1);
-}
-
-#content #news-box .news{
-    width: 50%;
-    padding: 10px;
-}
-
-#content #news-box{
-    display: flex;
-}
-#content #subcate-box #subcate-list{
-    margin: 0px 50px 0px 0px
-}
-
-#content main #subcate-box #subcate-img{
-    display: flex;
-    width: 40%;
-    border-radius: 10px;
-    margin: 0px 50px 30px 15px;
-    margin-left: 0;
-}
-
-#content #subcate-box{
-    display: flex;
-    margin-left: 30px;
-    padding-right: 10px;
-    padding-left: 10px;
-    min-height: 70%;
-
 }
 
 #activity-box{
@@ -230,14 +204,61 @@ table#kek-kokeet {
     background-color: rgba(218, 248, 224, 1);
     color:rgba(55, 146, 75, 1);
     width: 100%;
-    }
+}
     
 table#kek-kokeet th {
     text-align: left;
-    }
+}
     
 table#kek-kokeet td {
     background-color: white;
+}
+#mydogsdiv{
+    justify-content: center;
+}
+#mydogs{
+    text-align: left;
+    float: left;
+}
+table#mydogs th{
+    color:rgba(55, 146, 75, 1)
+}
+table#mydogs td{
+    text-align: left;
+}
+
+table#competitionclasses{
+    border: 1px solid rgba(55, 146, 75, 1);
+    background-color:rgba(86, 212, 114, 1);
+    text-align: center; 
+    border-radius: 5px;
+    width: 50%;
+    margin-left: 50px;
+}
+table#competitionclasses th{
+    background-color:rgba(86, 212, 114, 1);
+    color: white;   
+}
+table#competitionclasses tr{
+    border: 1px solid white;
+    
+}
+table#competitionclasses td{
+    border: 1px solid rgba(86, 212, 114, 1);  
+    background-color: white; 
+    border-radius: 5px;
+}
+
+#register_user{
+    color:rgba(55, 146, 75, 1);
+    font-weight: bold;
+}
+#register_user #submit-button{
+    color:rgba(55, 146, 75, 1);
+    font-weight: bold;
+    background-color: rgba(218, 248, 224, 1); 
+    padding: 5px; 
+    border-radius: 5px; 
 }
 
 @media only screen and (max-width: 950px){

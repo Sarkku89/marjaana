@@ -16,7 +16,7 @@ get_header(); ?>
     endwhile;
     endif;?>
 <div id="kekdiv">
-<h2>Kaikkien etsintämuotojen kokeet</h2>
+<h3>Kaikkien etsintämuotojen kokeet</h3>
 <table id="kek-kokeet">
     <tr>
         <th colspan="2">Päivämäärä</th>
