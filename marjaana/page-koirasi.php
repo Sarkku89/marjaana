@@ -1,5 +1,8 @@
 <?php
-// Looping competition class results for individual dogs
+
+echo "<script>function dog_modify_redirection(){
+    window.location.replace('http://localhost/marjaana/wordpress/muokkaa-koiran-tietoja/');
+}</script>";
 
 get_header(); ?>
 <div id = "content">
@@ -11,13 +14,16 @@ get_header(); ?>
         <?php while(have_posts()): the_post(); ?>
         <article>
         <h2><?php the_title();?></h2>
+    
         <?php the_content();?>
+        
     </article>
     <?php
     endwhile;
     endif;?>
+    <a href="lisaa-koira">Lisää koira</a><br>
 <?php
-// Creating dynamic table for trials. Each post will create new row and subrow.
+// Retrieve the dogs owned by this owner
 $args = array(
     'post_type' => 'adogs-dog',
     'orderby' => '_adogs_meta_rname',
@@ -25,13 +31,25 @@ $args = array(
   );
   
 $my_dogs= new WP_Query( $args );
+$owner_id = get_current_user_id();
+
+if($_POST){
+    $post_id = $_POST['dog_id_input'];
+    update_post_meta($post_id, '_adogs_meta_modified', "true");
+    echo '<script>dog_modify_redirection()</script>';
+    exit;
+};
   
   if( $my_dogs->have_posts() ) {
     while( $my_dogs->have_posts() ) {
       $my_dogs->the_post();
+      $dog_owner= get_post_meta($post->ID, '_adogs_meta_owner', true);
+      $dog_id = get_the_ID();
+      if($dog_owner == $owner_id){
     ?>
 <div id="mydogsdiv">
     <br>
+    
 <table id="mydogs">
     <tr>
         <th>Koiran rekisterinimi:</th>
@@ -104,16 +122,21 @@ $cc_yeka = get_post_meta($post->ID, '_adogs_meta_yekac', true);
 
     
     </table>
-    <br>
-    <hr></hr>
+
+    <form method="post">
+        <input type="hidden" name="dog_id_input" value="<?php echo $dog_id; ?>">
+        <input type="submit" name="modify_dog"
+                value="Muokkaa"/>
+    </form>
+
 <?php
-}}
+
+}}}
+
   wp_reset_postdata()
 ?>
-        </div>
-    </main>
-  <?php 
-get_sidebar(); ?>
+ </main>
+
 </div> <!--content-->
 <?php
 get_footer();

@@ -4,23 +4,6 @@ echo // First try loading jQuery from Google's CDN
 
 // List of dog breeds by fci groups & functions for displaying them as select options
 echo '<script language="javascript">
-const fci1 = ["ardennienkarjakoira", "australiankarjakoira", "australiankelpie", "australianpaimenkoira", "australian töpöhäntäinen karjakoira", "beauceron", 
-"belgianpaimenkoira, groenendael", "belgianpaimenkoira, laekenois", "belgianpaimenkoira, malinois", "belgianpaimenkoira, tervueren", "bergamasco", 
-"bordercollie", "bouvier", "briardi", "ceskoslovensky vlcak", "etelävenäjänkoira", "hollanninpaimenkoira, karkeakarvainen", "hollanninpaimenkoira, lyhytkarvainen",
-"hollanninpaimenkoira, pitkäkarvainen", "itäeuroopanpaimenkoira", "karpaattienkoira", "katalonianpaimenkoira", "komondor", "kroatianpaimenkoira", "kuvasz",
-"lancashirenkarjakoira", "lyhytkarvainen pyreneittenpaimenkoira", "mallorcanpaimenkoira", "maremmano-abruzzese", "mudi", "owczarek podhalanski", "partacollie", "picardienpaimenkoira", 
-"pitkäkarvainen collie", "pitkäkarvainen pyreneittenpaimenkoira", "polski owczarek nizinny", "puli, muut värit", "puli, valkoinen", "pumi", "romanianpaimenkoira",
-"saarloos wolfhond", "saksanpaimenkoira, pitkäkarvainen", "saksanpaimenkoira", "schapendoes", "schipperke", "serra de airesinpaimenkoira",
-"shetlanninlammaskoira", "sileäkarvainen collie", "slovakiancuvac", "tsekinpaimenkoira", "valkoinenpaimenkoira", "vanhaenglanninlammaskoira", "welsh corgi cardigan", "welsh corgi pembroke"
-];
-const fci2 = ["affenpinseri","aidi","alentejonkoira","anatolianpaimenkoira ","appenzellinpaimenkoira","bernhardinkoira, lyhytkarvainen","bernhardinkoira, pitkäkarvainen",
-"berninpaimenkoira","bokseri","bordeauxindoggi","broholminkoira","bukovinankoira","bullmastiffi","cane corso","cao de castro laboreiro",
-"dobermanni","dogo argentino","englanninbulldoggi","entlebuchinpaimenkoira","espanjanmastiffi","estrelanvuoristokoira, lyhytkarvainen","estrelanvuoristokoira, pitkäkarvainen",
-"fila brasileiro","hollanninrottakoira","hovawart","isosveitsinpaimenkoira","itävallanpinseri","kanariandoggi","karstinpaimenkoira",
-"kaukasiankoira","keskiaasiankoira","kääpiöpinseri","kääpiösnautseri","landseer","leonberginkoira",
-"mallorcandoggi","mastiffi","napolinmastiffi","newfoundlandinkoira","pinseri","pyreneittenkoira","pyreneittenmastiffi","rottweiler","sao miguelinfila","sarplaninac","shar pei",
-"snautseri","tanskalais-ruotsalainen pihakoira","tanskandoggi","tiibetinmastiffi","tornjak","tosa","uruguayan cimarron","venäjänmustaterrieri"
-];
 
 jQuery(document).ready(function () {
 
@@ -351,6 +334,8 @@ function adogs_save_postdata($post_id){
             sanitize_text_field($_POST['cc_yeku'])
         );
     endif;
+    update_post_meta($post_id, '_adogs_meta_owner', get_current_user_id());
+    update_post_meta($post_id, '_adogs_meta_modified', "false");
   }
 
 
