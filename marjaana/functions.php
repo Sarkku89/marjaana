@@ -91,5 +91,43 @@ function error_handler() {
     exit;
 }
 add_filter( 'login_errors', 'error_handler');
-?>
 
+add_action( 'wp_head', 'marjaana_get_current_user_roles');
+ 
+function marjaana_get_current_user_roles() {
+ 
+  if( is_user_logged_in() ) {
+ 
+    $user = wp_get_current_user();
+ 
+    $roles = ( array ) $user->roles;
+ 
+    //return $roles; // This will returns an array
+    return array_values($roles);
+ 
+  } else {
+ 
+    return array();
+ 
+  }
+ 
+}
+add_action( 'init', 'blockusers_init' ); function blockusers_init() { if ( is_admin() && ! current_user_can( 'administrator' ) && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) { wp_redirect( home_url() ); exit; } } 
+add_action('after_setup_theme', 'remove_admin_bar');
+function remove_admin_bar() {
+  if (!current_user_can('administrator') && !is_admin()) {
+    show_admin_bar(false);
+  }
+}
+
+
+add_filter( 'wp_nav_menu_items', 'wti_loginout_menu_link', 10, 2);
+function wti_loginout_menu_link( $items, $args) {
+	if ($args->theme_location == 'primary') {
+		if (is_user_logged_in()) {
+			$items .='<li class="right"><a href="'.wp_logout_url() .'">'. __("Kirjaudu ulos") .'</a></li>';
+			
+		}
+	}
+return $items;
+}

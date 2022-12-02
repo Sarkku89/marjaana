@@ -14,8 +14,6 @@ get_header(); ?>
       <img id= "front-page-img"src="https://suomenmustaterrierit.files.wordpress.com/2018/07/neiti-kesc3a4heinc3a4.jpg?w=768&h=516">   
     </div>    
   </main>
-    <?php 
-  get_sidebar(); ?>
 </div> <!--content-->
 <?php
 get_footer();

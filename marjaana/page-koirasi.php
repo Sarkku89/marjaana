@@ -4,6 +4,15 @@ echo "<script>function dog_modify_redirection(){
     window.location.replace('http://localhost/marjaana/wordpress/muokkaa-koiran-tietoja/');
 }</script>";
 
+echo "<script>function access_denied(pass) {
+        if (pass = 'yes') {
+            jQuery('#kokeen_lisays_div').show();
+        }
+        else {
+            jQuery('#trial_error').show();
+        };
+    };</script>";
+
 get_header(); ?>
 <div id = "content">
     <main>        

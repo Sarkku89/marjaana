@@ -199,18 +199,21 @@ body{
     flex: 100%;
 
 }
+table#kek-kokeet tr#baserow > td ,tr#baserow > td{
+    background-color: rgb(240, 254, 242);
+}
 
-table#kek-kokeet {
+table#kek-kokeet, #yeks-kokeet, #yekl-kokeet, #yeku-kokeet, #yeka-kokeet {
     background-color: rgba(218, 248, 224, 1);
     color:rgba(55, 146, 75, 1);
     width: 100%;
 }
     
-table#kek-kokeet th {
+table#kek-kokeet th, #yeks-kokeet th, #yekl-kokeet th, #yeku-kokeet th, #yeka-kokeet th{
     text-align: left;
 }
     
-table#kek-kokeet td {
+table#kek-kokeet td, #yeks-kokeet td, #yekl-kokeet td, #yeku-kokeet td, #yeka-kokeet td {
     background-color: white;
 }
 #mydogsdiv{

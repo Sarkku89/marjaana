@@ -455,29 +455,10 @@ function ecalendar_save_postdata($post_id){
             sanitize_text_field($_POST['ecalendar_class'])
         );
     endif;
-    
-    $initial_date= $_POST['ecalendar_date'];
-    $dd = substr($initial_date, -2);
-    $mm = substr($initial_date, -5, 2);
-    $yy = substr($initial_date, -10, 4);
-    $formatted_date = $dd.'.'.$mm.'.'.$yy;
-
-    $title = $formatted_date.' '. $_POST['ecalendar_place'].' '.$_POST['ecalendar_class'].'.LK';
-    update_post_meta( $post_id, 'gen_title', $title );
-    
+    update_post_meta($post_id, '_ecalendar_meta_modified', "false");
    
  }
  
 add_action('save_post', 'ecalendar_save_postdata');
 
-function set_event_title($data)
-{
-    if('ecalendar-event' != $data['post-type'])
-        return $data;
-
-    $data['post_title'] = $data['_ecalendar_meta_place'];
-
-    return $data;
-}
-add_filter('wp_insert_post_data', 'set_event_title');
 ?>

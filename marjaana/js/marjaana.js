@@ -12,41 +12,40 @@ jQuery(document).ready(function () {
         }
     })
 });
-// Opening and closing the event calender subrows. STILL IN PROGRESS
-/*
-jQuery(document).ready(function() {
-    jQuery('table#kek-kokeet tbody tr#'+jQuery('#baserow_id').val()).click(function() {
+
+// Trial table toggle functions
+jQuery('#kek-kokeet').on('click','#baserow', function () {
         
-        jQuery('table#kek-kokeet tbody tr#'+jQuery('#subrow_id').val()).toggle(400);
-    });
-
-});
-jQuery(document).ready(function () {
-    jQuery('#link').on('click', function () {
-        let dogID = jQuery('#dogID').val();
-        console.log(dogID);
-
+        let trialID = jQuery(this).next('tr').attr('id');
+        jQuery(`[id=${trialID}]`).toggle(400);
     })
-});
-*/
+     
+jQuery('#yeks-kokeet').on('click','#baserow', function () {
+        
+        let trialID = jQuery(this).next('tr').attr('id');
+        jQuery(`[id=${trialID}]`).toggle(400);
+    })
 
-function toggling(id) {
-    jQuery('table#kek-kokeet tbody tr#subrow' + id).toggle(400);
+jQuery('#yekl-kokeet').on('click','#baserow', function () {
+    
+    let trialID = jQuery(this).next('tr').attr('id');
+    jQuery(`[id=${trialID}]`).toggle(400);
+})
 
-}
+jQuery('#yeku-kokeet').on('click','#baserow', function () {
+    
+    let trialID = jQuery(this).next('tr').attr('id');
+    jQuery(`[id=${trialID}]`).toggle(400);
+})
 
-$('.nuoli').click(function () {
-    var $this = $(this);
-    $this.toggleClass('nuoli');
-    if ($this.hasClass('nuoli')) {
-        $this.html('&#9660;');
-    } else {
-        $this.html('&#9650;');
-    }
-});
+jQuery('#yeka-kokeet').on('click','#baserow', function () {
+    
+    let trialID = jQuery(this).next('tr').attr('id');
+    jQuery(`[id=${trialID}]`).toggle(400);
+    })
 
 
-
+// Dog breed selection variables and functions
 const fci1 = ["ardennienkarjakoira", "australiankarjakoira", "australiankelpie", "australianpaimenkoira", "australian töpöhäntäinen karjakoira", "beauceron", 
 "belgianpaimenkoira, groenendael", "belgianpaimenkoira, laekenois", "belgianpaimenkoira, malinois", "belgianpaimenkoira, tervueren", "bergamasco", 
 "bordercollie", "bouvier", "briardi", "ceskoslovensky vlcak", "etelävenäjänkoira", "hollanninpaimenkoira, karkeakarvainen", "hollanninpaimenkoira, lyhytkarvainen",
@@ -91,3 +90,16 @@ function getTheBreed(){
     let value = jQuery("#breed").find("option:selected").val();
     return value;
 }
+
+
+/*
+$('.nuoli').click(function () {
+    var $this = $(this);
+    $this.toggleClass('nuoli');
+    if ($this.hasClass('nuoli')) {
+        $this.html('&#9660;');
+    } else {
+        $this.html('&#9650;');
+    }
+});
+*/
