@@ -99,7 +99,7 @@ body{
     margin: 30px;
 }
 
-#content main article h2{
+main h2{
     text-align: center;
     color:rgba(86, 212, 114, 1);
 }

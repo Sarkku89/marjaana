@@ -1,6 +1,17 @@
 <?php
+echo "<script>function trial_enrollment_redirection(){
+    window.location.replace('http://localhost/marjaana/wordpress/ilmoittaudu-kokeeseen');
+}</script>";
 
-get_header(); ?>
+get_header(); 
+
+if($_POST){
+    $trial_id = $_POST['trial_id_input'];
+    update_user_meta($current_user->ID, 'trial_to_enroll', $trial_id, '');
+    echo '<script>trial_enrollment_redirection()</script>';
+    exit;
+};
+?>
 <div id = "content">
     <main>
 <h2>Koekalenteri</h2>
@@ -22,7 +33,6 @@ get_header(); ?>
 $args = array(
   'post_type' => 'ecalendar-event',
   'orderby' => '_ecalendar_meta_date',
-'order' => 'ASC',
   'tax_query' => array(
     array(
       'taxonomy' => 'ecalendar_category',
@@ -40,6 +50,7 @@ if( $kek_events->have_posts() ) {
     $kek_events->the_post();
     $id =  'subrow'.$post->ID;
     $bid = 'baserow'.$post->ID;
+    $trial_id = $post->ID;
        ?>
        
        <tr id="baserow">
@@ -71,7 +82,7 @@ if( $kek_events->have_posts() ) {
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
             <td colspan="2">Ilm.aika</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?>-<?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?></td>
+            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?> - <?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
             <td colspan="2">Os.maksu</td>
@@ -88,7 +99,14 @@ if( $kek_events->have_posts() ) {
         <tr id = "<?php echo $id ?>" style="display: none;">
             <td colspan="2">Tiedustelu</td>
             <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_contact', true);?></td>
-       </tr><?php 
+       </tr>
+       <tr id = "<?php echo $id ?>" style="display: none;">
+       <td colspan="5"><form method="post">
+        <input type="hidden" name="trial_id_input" value="<?php echo $trial_id; ?>">
+        <input type="submit" name="enroll_trial" value="Ilmoittaudu"/>
+    </form></td>
+       </tr>
+       <?php 
 
     }
   }
@@ -181,6 +199,13 @@ if( $yeks_events->have_posts() ) {
         <tr id = "<?php echo $id ?>" style="display: none;">
             <td colspan="2">Tiedustelu</td>
             <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_contact', true);?></td>
+       </tr>
+       <tr id = "<?php echo $id ?>" style="display: none;">
+       <td colspan="5"><form method="post">
+        <input type="hidden" name="trial_id_input" value="<?php echo $trial_id; ?>">
+        <input type="submit" name="enroll_trial"
+                value="Ilmoittaudu"/>
+    </form></td>
        </tr><?php 
 
     }
@@ -274,6 +299,13 @@ if( $yekl_events->have_posts() ) {
         <tr id = "<?php echo $id ?>" style="display: none;">
             <td colspan="2">Tiedustelu</td>
             <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_contact', true);?></td>
+       </tr>
+       <tr id = "<?php echo $id ?>" style="display: none;">
+       <td colspan="5"><form method="post">
+        <input type="hidden" name="trial_id_input" value="<?php echo $trial_id; ?>">
+        <input type="submit" name="enroll_trial"
+                value="Ilmoittaudu"/>
+    </form></td>
        </tr><?php 
 
     }
@@ -368,6 +400,13 @@ if( $yeku_events->have_posts() ) {
         <tr id = "<?php echo $id ?>" style="display: none;">
             <td colspan="2">Tiedustelu</td>
             <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_contact', true);?></td>
+       </tr>
+       <tr id = "<?php echo $id ?>" style="display: none;">
+       <td colspan="5"><form method="post">
+        <input type="hidden" name="trial_id_input" value="<?php echo $trial_id; ?>">
+        <input type="submit" name="enroll_trial"
+                value="Ilmoittaudu"/>
+    </form></td>
        </tr><?php 
 
     }
@@ -461,6 +500,13 @@ if( $yeka_events->have_posts() ) {
         <tr id = "<?php echo $id ?>" style="display: none;">
             <td colspan="2">Tiedustelu</td>
             <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_contact', true);?></td>
+       </tr>
+       <tr id = "<?php echo $id ?>" style="display: none;">
+       <td colspan="5"><form method="post">
+        <input type="hidden" name="trial_id_input" value="<?php echo $trial_id; ?>">
+        <input type="submit" name="enroll_trial"
+                value="Ilmoittaudu"/>
+    </form></td>
        </tr><?php 
 
     }

@@ -129,9 +129,10 @@ if(is_user_logged_in()){
                 ;}
 
 ?>
-<h2>Muokkaa koetta</h2>
+
         <div id = "content">
                 <main>        
+                <h2>Muokkaa koetta</h2>
             <div id="kokeen_muokkaus_div">
             <form id="koemuokkaus" method="post">
             <label for ="date">Päivämäärä</label><br>

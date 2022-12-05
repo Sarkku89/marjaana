@@ -4,10 +4,16 @@
 *The template name: Lisää koe
 
 */
-// Adding a dog
+require_once('wp-load.php' );
+require_once(ABSPATH . 'wp-admin/includes/taxonomy.php');
+
+// Adding a trial
 echo "<script>function my_events_redirection(){
     window.location.replace('http://localhost/marjaana/wordpress/koekalenteri');
 }</script>";
+
+echo "<script>function console_logging(logged) 
+{console.log(logged)}</script>";
 
 function has_user_role($role){
     $roles = marjaana_get_current_user_roles();
@@ -24,13 +30,13 @@ get_header();
 // Retrieve the dogs owned by this owner
 
 if(is_user_logged_in()){
-    echo '<script>console_log("Logged in")</script>';
     if(has_user_role('author') || has_user_role('administrator')){
         
-        echo ' <h2>Lisää koe</h2>
+        echo ' 
         <div id = "content">
                 <main>        
             <div id="kokeen_lisays_div">
+            <h2>Lisää koe</h2>
             <form id="trial_add" method="post">
             <form id="trial_add" method="post">
             <label for ="date">Päivämäärä</label><br>
@@ -106,6 +112,7 @@ if(is_user_logged_in()){
               );
             $post_id = wp_insert_post( $new_trial , $wp_error );
             wp_set_object_terms($post_id, $category, 'ecalendar_category');
+
             if ($post_id) {
                 update_post_meta($post_id, '_ecalendar_meta_date', sanitize_text_field($_POST['date']));
                 update_post_meta($post_id, '_ecalendar_meta_date_formatted', $formatted_date);
@@ -127,8 +134,26 @@ if(is_user_logged_in()){
                 update_post_meta($post_id, '_ecalendar_meta_place', sanitize_text_field($_POST['place']));
                 update_post_meta($post_id, '_ecalendar_meta_address', sanitize_text_field($_POST['address']));
                 update_post_meta($post_id, '_ecalendar_meta_modified', "false");
+                update_post_meta($post_id, '_ecalendar_meta_status', "Tilaa");
+                update_post_meta($post_id, '_ecalendar_meta_enrollments', $enrollment_array);
                 
-                echo '<script>my_events_redirection()</script>';
+                $taxonomy = 'events_category';
+                
+                $cat_defaults = array(
+                    'cat_name' => $tag_name,
+                    'taxonomy' => $taxonomy
+                );
+                $cat = `${$post_id}`;
+                $existing= category_exists($cat);
+                echo '<script>console_logging('.$existing.')</script>';
+                $cat2 = `smtry`;
+                $existing2= category_exists($cat2);
+                echo '<script>console_logging('.$existing2.')</script>';
+                //$new_enrollment = wp_insert_category($cat_defaults);
+                
+                
+
+               //echo '<script>my_events_redirection()</script>';
                 exit;
                 
                 }}}}

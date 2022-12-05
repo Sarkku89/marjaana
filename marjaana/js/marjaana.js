@@ -91,7 +91,6 @@ function getTheBreed(){
     return value;
 }
 
-
 /*
 $('.nuoli').click(function () {
     var $this = $(this);
