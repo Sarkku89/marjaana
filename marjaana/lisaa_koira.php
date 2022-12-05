@@ -6,7 +6,7 @@
 */
 // Adding a dog
 echo "<script>function dog_profile_redirection(){
-    window.location.replace('http://localhost/marjaana/wordpress/koirasi');
+    window.location.replace('https://localhost/wordpress-6.0.2/semgroup8/koirasi/');
 }</script>";
 
 echo "<script>function console_log(){
@@ -49,15 +49,18 @@ if(is_user_logged_in()){
         }
         };};};
 ?>
-<h2>Lisää koira</h2>
+
 <div id = "content">
 <main>
+    <h2>Lisää koira</h2>
     <div id="koiran_muokkaus_div">
-    <form id="lisaa_koira" method="post">
+    <form id="register_user" method="post">
     <label for ="nickname">Kutsumanimi</label><br>
 	<input name="nickname" type="text" id="nickname" size="50"><br>
+    <br>
     <label for ="rname">Rekisterinimi</label><br>
     <input type="text" name="rname" id="rname" size="50"><br>
+    <br>
     <label for ="fcigroup">Roturyhmä</label><br>
     <select id="fcigroup" name="fcigroup">
     
@@ -70,15 +73,19 @@ if(is_user_logged_in()){
     <select id="breed" name="breed">
     <option></option>
     </select><br>
+    <br>
     <label for ="renro">Rekisterinumero</label><br>
     <input type="text" name="renro" id="renro" size="50"><br>
+    <br>
     <label for ="microchip">Mikrosirun numero</label><br>
     <input type="text" name ="microchip" id="microchip" size="50"><br>
+    <br>
     <label for ="gender">Sukupuoli</label><br>
     <input type="radio" name="gender" value="Narttu" >
     <label>Narttu</label><br>
     <input type="radio" name="gender" value="Uros">
     <label>Uros</label><br>
+    <br>
     <table id="compclasses_table">
     <tr>
         <th style="padding: 5px; text-align: left;"><label for="cc_kek">Kaikki etsintämuodot</label></th>
@@ -123,8 +130,8 @@ if(is_user_logged_in()){
     </td>
     </tr>
 </table>
-
-    <input type="submit" value="Tallenna">
+<br>
+    <input id="submit-button" type="submit" value="Tallenna">
     </form>
 </div>
 

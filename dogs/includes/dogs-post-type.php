@@ -2,30 +2,20 @@
 echo // First try loading jQuery from Google's CDN
 '<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>';
 
-// List of dog breeds by fci groups & functions for displaying them as select options
 echo '<script language="javascript">
 
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
 
-    jQuery("#adogs_fcigroup").change(function () {
+    jQuery("#adogs_fcigroup").change(function(){
         let value = jQuery("#adogs_fcigroup").find("option:selected").val();
-        if (value = "fci1") {
-            for (let i = 0; i < fci1.length; i++) {
-                let breedname = fci1[i];
-                let html = `<option value="${breedname}">${breedname}</option>`
-                jQuery("#adogs_breed").append(html);
+        if(value = "fci1"){
+          for(let i = 0; i < fci1.length; i++) {
+            let breedname = fci1[i];
+            let html = `<option value="${breedname}">${breedname}</option>`
+          jQuery("#adogs_breed").append(html);
             }
-        }
-        if (value = "fci2") {
-            for (let i = 0; i < fci2.length; i++) {
-                let breedname = fci2[i];
-                let html = `<option value="${breedname}">${breedname}</option>`
-                jQuery("#adogs_breed").append(html);
-
-            }
-        }
-    })
-});
+      }})
+  });
 
 function getTheBreed(){
     let value = jQuery("#adogs_breed").find("option:selected").val();
@@ -334,8 +324,6 @@ function adogs_save_postdata($post_id){
             sanitize_text_field($_POST['cc_yeku'])
         );
     endif;
-    update_post_meta($post_id, '_adogs_meta_owner', get_current_user_id());
-    update_post_meta($post_id, '_adogs_meta_modified', "false");
   }
 
 

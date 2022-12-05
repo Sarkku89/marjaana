@@ -6,7 +6,7 @@
 */
 // Adding a dog
 echo "<script>function my_events_redirection(){
-    window.location.replace('http://localhost/marjaana/wordpress/kokeesi');
+    window.location.replace('https://localhost/wordpress-6.0.2/semgroup8/kokeesi');
 }</script>";
 
 echo "<script>function console_log(text){
@@ -129,56 +129,76 @@ if(is_user_logged_in()){
                 ;}
 
 ?>
-<h2>Muokkaa koetta</h2>
+
         <div id = "content">
-                <main>        
+                <main>
+                    <h2>Muokkaa koetta</h2>        
             <div id="kokeen_muokkaus_div">
-            <form id="koemuokkaus" method="post">
+            <form id="register_user" method="post">
             <label for ="date">Päivämäärä</label><br>
-            <input name="date" type="date" value="<?php echo $date; ?>"><br><br>
+            <input name="date" type="date" value="<?php echo $date; ?>"><br>
+            <br>
             <label for ="organizer">Järjestäjä</label><br>
             <input type="text" name="organizer" id="organizer" value="<?php echo $organizer; ?>"><br>
+            <br>
             <label for ="first_judge">Ylituomari</label><br>
             <input type="text" name="first_judge" id="first_judge" value="<?php echo $first_judge; ?>"><br>
+            <br>
             <label for ="second_judge">Palkintotuomari</label><br>
             <input type="text" name="second_judge" id="second_judge" value="<?php echo $second_judge; ?>"><br>
+            <br>
             <label for ="limit">Rajoitukset</label><br>
             <textarea rows = "5" cols = "60" name ="limit" id="limit"><?php echo $limit; ?></textarea><br>
+            <br>
             <label for ="max">Max koiramäärä</label><br>
             <input type="text" name="max" id="max" size="3" value="<?php echo $max; ?>"><br>
+            <br>
             <label for ="min">Min koiramäärä</label><br>
             <input type="text" name="min" id="min" size="3" value="<?php echo $min; ?>"><br>
+            <br>
             <label for ="priority">Etusija</label><br>
-            <input type="text" name="priority" id="priority" value="<?php echo $priority; ?>"><br><br>
+            <input type="text" name="priority" id="priority" value="<?php echo $priority; ?>"><br>
+            <br>
             <label for ="enrollment1">Ilmoittautumisaika alkaa</label><br>
             <input name="enrollment1" type="date" value="<?php echo $enrollment1; ?>"><br>
+            <br>
             <label for ="enrollment2">Ilmoittautumisaika päättyy</label><br>
-            <input name="enrollment2" type="date" value="<?php echo $enrollment2; ?>"><br><br>
+            <input name="enrollment2" type="date" value="<?php echo $enrollment2; ?>"><br>
+            <br>
             <label for ="price1">Yleinen osallistumismaksu</label><br>
             <input type="text" name="price1" id="price1" size="3" value="<?php echo $price1; ?>">€<br>
+            <br>
             <label for ="price2">Jäsenille</label><br>
-            <input type="text" name="price2" id="price2" size="3" value="<?php echo $price2; ?>">€<br><br>
+            <input type="text" name="price2" id="price2" size="3" value="<?php echo $price2; ?>">€<br>
+            <br>
             <label for ="info">Lisätiedot</label><br>
-            <textarea rows = "5" cols = "60" name ="info" id="info" ><?php echo $info; ?></textarea><br><br>
+            <textarea rows = "5" cols = "60" name ="info" id="info" ><?php echo $info; ?></textarea><br>
+            <br>
             <label for ="other">Muuta</label><br>
-            <input type="text" name="other" id="other" value="<?php echo $other; ?>"><br><br>
+            <input type="text" name="other" id="other" value="<?php echo $other; ?>"><br>
+            <br>
             <label for ="contact">Tiedustelut</label><br>
             <textarea rows = "5" cols = "60" name ="contact" id="contact"><?php echo $contact; ?></textarea><br>
+            <br>
             <label for="class">Luokka</label><br>
             <input type="checkbox" name="class" value="1" <?php checked($class,'1');?>/> 1
             <input type="checkbox" name="class" value="2" <?php checked($class,'2');?>/> 2
             <input type="checkbox" name="class" value="3" <?php checked($class,'3');?>/> 3<br>
+            <br>
             <label for="categ">Etsintämuoto</label><br>
-            <input type="checkbox" name="categ" value="10" <?php echo (($categ=="10") ? "checked='checked'": '');?>/> Kaikkien etsintämuotojen koe<br>
-            <input type="checkbox" name="categ" value="4" <?php echo (($categ=="4") ? "checked='checked'": '');?>/> Yhden etsintämuodon koe, sisäetsintä<br>
-            <input type="checkbox" name="categ" value="6" <?php echo (($categ=="6") ? "checked='checked'": '');?>/> Yhden etsintämuodon koe, laatikkoetsintä<br>
-            <input type="checkbox" name="categ" value="7" <?php echo (($categ=="7") ? "checked='checked'": '');?>/> Yhden etsintämuodon koe, ulkoetsintä<br>
-            <input type="checkbox" name="categ" value="8" <?php echo (($categ=="8") ? "checked='checked'": '');?>/> Yhden etsintämuodon koe, ajoneuvoetsintä<br>
+            <input type="checkbox" name="categ" value="5" <?php echo (($categ=="10") ? "checked='checked'": '');?>/> Kaikkien etsintämuotojen koe<br>
+            <input type="checkbox" name="categ" value="6" <?php echo (($categ=="4") ? "checked='checked'": '');?>/> Yhden etsintämuodon koe, sisäetsintä<br>
+            <input type="checkbox" name="categ" value="7" <?php echo (($categ=="6") ? "checked='checked'": '');?>/> Yhden etsintämuodon koe, laatikkoetsintä<br>
+            <input type="checkbox" name="categ" value="8" <?php echo (($categ=="7") ? "checked='checked'": '');?>/> Yhden etsintämuodon koe, ulkoetsintä<br>
+            <input type="checkbox" name="categ" value="9" <?php echo (($categ=="8") ? "checked='checked'": '');?>/> Yhden etsintämuodon koe, ajoneuvoetsintä<br>
+            <br>
             <label for ="place">Paikkakunta</label><br>
             <input type="text" name="place" id="place" value="<?php echo $place; ?>"><br>
+            <br>
             <label for ="address">Osoite</label><br>
             <input type="text" name="address" id="address" value="<?php echo $address; ?>"><br>
-            <input type="submit" value="Tallenna">
+            <br>
+            <input id="submit-button" type="submit" value="Tallenna">
             </form>
             </div>
 

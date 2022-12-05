@@ -48,7 +48,7 @@ if($_POST){
 <div id = "content">
     <main>
 
-        <h2 style="text-align: center; color:rgba(86, 212, 114, 1);">Rekisteröidy</h2><br>
+        <h2>Rekisteröidy</h2><br>
 
         <form id="register_user" method="post">
             <div style="float: left; width: 50%;">

@@ -6,7 +6,7 @@
 */
 // Adding a dog
 echo "<script>function my_events_redirection(){
-    window.location.replace('http://localhost/marjaana/wordpress/koekalenteri');
+    window.location.replace('https://localhost/wordpress-6.0.2/semgroup8/koekalenteri');
 }</script>";
 
 function has_user_role($role){
@@ -27,57 +27,76 @@ if(is_user_logged_in()){
     echo '<script>console_log("Logged in")</script>';
     if(has_user_role('author') || has_user_role('administrator')){
         
-        echo ' <h2>Lisää koe</h2>
+        echo ' 
         <div id = "content">
-                <main>        
+                <main>
+                <h2>Lisää koe</h2>        
             <div id="kokeen_lisays_div">
-            <form id="trial_add" method="post">
-            <form id="trial_add" method="post">
+            <form id="register_user" method="post">
+            <form id="register_user" method="post">
             <label for ="date">Päivämäärä</label><br>
             <input name="date" type="date"><br><br>
             <label for ="organizer">Järjestäjä</label><br>
             <input type="text" name="organizer" id="organizer"><br>
+            <br>
             <label for ="first_judge">Ylituomari</label><br>
             <input type="text" name="first_judge" id="first_judge"><br>
+            <br>
             <label for ="second_judge">Palkintotuomari</label><br>
             <input type="text" name="second_judge" id="second_judge"><br>
+            <br>
             <label for ="limit">Rajoitukset</label><br>
             <textarea rows = "5" cols = "60" name ="limit" id="limit"></textarea><br>
+            <br>
             <label for ="max">Max koiramäärä</label><br>
             <input type="text" name="max" id="max" size="3"><br>
+            <br>
             <label for ="min">Min koiramäärä</label><br>
             <input type="text" name="min" id="min" size="3"><br>
+            <br>
             <label for ="priority">Etusija</label><br>
-            <input type="text" name="priority" id="priority"><br><br>
+            <input type="text" name="priority" id="priority"><br>
+            <br>
             <label for ="enrollment1">Ilmoittautumisaika alkaa</label><br>
             <input name="enrollment1" type="date"><br>
+            <br>
             <label for ="enrollment2">Ilmoittautumisaika päättyy</label><br>
             <input name="enrollment2" type="date"><br><br>
+            <br>
             <label for ="price1">Yleinen osallistumismaksu</label><br>
             <input type="text" name="price1" id="price1" size="3">€<br>
+            <br>
             <label for ="price2">Jäsenille</label><br>
-            <input type="text" name="price2" id="price2" size="3">€<br><br>
+            <input type="text" name="price2" id="price2" size="3">€<br>
+            <br>
             <label for ="info">Lisätiedot</label><br>
             <textarea rows = "5" cols = "60" name ="info" id="info"></textarea><br>
+            <br>
             <label for ="other">Muuta</label><br>
             <input type="text" name="other" id="other" ><br>
-            <label for ="contact">Tiedustelut</label><br><br>
+            <br>
+            <label for ="contact">Tiedustelut</label><br>
             <textarea rows = "5" cols = "60" name ="contact" id="contact"></textarea><br>
+            <br>
             <label for="class">Luokka</label><br>
             <input type="checkbox" name="class" value="1"/> 1
             <input type="checkbox" name="class" value="2"/> 2
             <input type="checkbox" name="class" value="3"/> 3<br>
+            <br>
             <label for="categ">Etsintämuoto</label><br>
-            <input type="checkbox" name="categ" value="10"/> Kaikkien etsintämuotojen koe<br>
-            <input type="checkbox" name="categ" value="4"/> Yhden etsintämuodon koe, sisäetsintä<br>
-            <input type="checkbox" name="categ" value="6"/> Yhden etsintämuodon koe, laatikkoetsintä<br>
-            <input type="checkbox" name="categ" value="7"/> Yhden etsintämuodon koe, ulkoetsintä<br>
-            <input type="checkbox" name="categ" value="8"/> Yhden etsintämuodon koe, ajoneuvoetsintä<br>
+            <input type="checkbox" name="categ" value="5"/> Kaikkien etsintämuotojen koe<br>
+            <input type="checkbox" name="categ" value="6"/> Yhden etsintämuodon koe, sisäetsintä<br>
+            <input type="checkbox" name="categ" value="7"/> Yhden etsintämuodon koe, laatikkoetsintä<br>
+            <input type="checkbox" name="categ" value="8"/> Yhden etsintämuodon koe, ulkoetsintä<br>
+            <input type="checkbox" name="categ" value="9"/> Yhden etsintämuodon koe, ajoneuvoetsintä<br>
+            <br>
             <label for ="place">Paikkakunta</label><br>
             <input type="text" name="place" id="place"><br>
+            <br>
             <label for ="address">Osoite</label><br>
             <input type="text" name="address" id="address"><br>
-            <input type="submit" value="Tallenna">
+            <br>
+            <input id="submit-button" type="submit" value="Tallenna">
             </form>
         </div>';
 
@@ -143,10 +162,10 @@ else{
     </div>';
     };}
 else{
-    echo '<h2>Lisää koe</h2>
+    echo '
     <div id = "content">
             <main>
-    
+        <h2>Lisää koe</h2>
     <div id="trial_error">
     <p>Vain kokeenjärjestäjät voivat lisätä kokeita!<br>
              <a href="#">Lue ohjeet tapahtumanjärjestejälle</a>.</p>

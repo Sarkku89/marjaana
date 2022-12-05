@@ -99,7 +99,7 @@ body{
     margin: 30px;
 }
 
-#content main article h2{
+main h2{
     text-align: center;
     color:rgba(86, 212, 114, 1);
 }
@@ -216,12 +216,16 @@ table#kek-kokeet th, #yeks-kokeet th, #yekl-kokeet th, #yeku-kokeet th, #yeka-ko
 table#kek-kokeet td, #yeks-kokeet td, #yekl-kokeet td, #yeku-kokeet td, #yeka-kokeet td {
     background-color: white;
 }
+
+#kekdiv, #yeksdiv, #yekldiv, #yekudiv, #yekadiv {
+    color: rgba(55, 146, 75, 1);
+}
+
 #mydogsdiv{
     justify-content: center;
 }
 #mydogs{
     text-align: left;
-    float: left;
 }
 table#mydogs th{
     color:rgba(55, 146, 75, 1)
@@ -235,8 +239,6 @@ table#competitionclasses{
     background-color:rgba(86, 212, 114, 1);
     text-align: center; 
     border-radius: 5px;
-    width: 50%;
-    margin-left: 50px;
 }
 table#competitionclasses th{
     background-color:rgba(86, 212, 114, 1);
@@ -262,6 +264,15 @@ table#competitionclasses td{
     background-color: rgba(218, 248, 224, 1); 
     padding: 5px; 
     border-radius: 5px; 
+}
+
+#compclasses_table{
+    color: rgba(55, 146, 75, 1)
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 @media only screen and (max-width: 950px){
