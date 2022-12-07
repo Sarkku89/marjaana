@@ -18,49 +18,60 @@ function console_log(logging){
 
 get_header(); 
 if($_POST){
-   
+    $user_id = get_current_user_id();
+    $trial_id= get_user_meta($user_id, 'trial_to_enroll', true);
     $enrollment_args = array(
         'post_type' => 'events-enrollment',
-        'post_category' => $trial_id
+        'category_id' => get_cat_ID($trial_id)
       );
     $enrollments = new WP_Query( $enrollment_args );
     
-    $max = (int) get_post_meta($trial_id, '_ecalendar_meta_max', true);
-    echo "<script>console_log(".$max.")</script>";
+    $max = get_post_meta($trial_id, '_ecalendar_meta_max', true);
     $total_enrolled = $enrollments->found_posts;
-    echo "<script>console_log(".$total_enrolled.")</script>";
 
-    if( !($total_enrolled > $max)){
+    if( ($total_enrolled < $max)){
         $the_dog_to_enroll = $_POST['dog_id_input'];
 
         $new_enrollment = array(
-            'post_type'     => "events-enrollment",
+            'post_type'     => 'events-enrollment',
             'post_status'   => 'publish',
-            'post_category' => $trial_id,
-            'post_title'    => $the_dog_to_enroll);
+            'post_title'    => $the_dog_to_enroll,
+            'post_excerpt'  => $trial_id);
 
-            wp_insert_post( $new_enrollment , $wp_error );
-
-        update_user_meta($current_user->ID, '_trial_to_enroll', null, '');
-       
+        $succes = wp_insert_post($new_enrollment, $wp_error );
+        if($succes){
+            wp_set_object_terms($succes, $trial_id, 'events_category');
+        }
+        update_user_meta($current_user->ID, 'trial_to_enroll', null, '');
+        $enrollment_args2 = array(
+            'post_type' => 'events-enrollment',
+            'category_id' => get_cat_ID($trial_id)
+          );
+        $enrollments2 = new WP_Query( $enrollment_args2 );
+        
+        $total_enrolled2 = $enrollments2->found_posts;
+        if( ($total_enrolled >= $max)){
+            update_post_meta($trial_id, '_ecalendar_meta_status', "Täynnä"); 
+        }
         echo "<h3>Kiitos ilmoittautumisesta!</h3>";
-        //echo '<script>enroll_trial_redirection()</script>';
+        sleep(2);
+        echo '<script>enroll_trial_redirection()</script>';
     }
     else{
-        echo '<script>console_log("status updated")</script>';
+
         update_post_meta($trial_id, '_ecalendar_meta_status', "Täynnä");
         echo "<h3 style='color:red'>Koe on täynnä!</h3>";
-        update_user_meta($current_user->ID, '_trial_to_enroll', null , '');
-        sleep(10);
-        //echo "<script>error_redirection()</script>";
+        update_user_meta($user_id, '_trial_to_enroll', null , '');
+        sleep(8);
+        echo "<script>error_redirection()</script>";
     }
     
 }
+$user_id = get_current_user_id();
 // Get the trial info
-$trial_id= get_user_meta($current_user->ID, 'trial_to_enroll', true);
+$trial_id= intval(get_user_meta($user_id, 'trial_to_enroll', true));
 
 get_post( $trial_id);
-echo '<script>console_log('.$trial_id.')</script>';
 $terms = wp_get_object_terms($trial_id, 'ecalendar_category', array('orderby' => 'term_id', 'order' => 'ASC') );
 if ( !empty( $terms ) ) {
     $project = array();

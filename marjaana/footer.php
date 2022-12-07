@@ -1,5 +1,5 @@
 <footer id ="site-footer">
-    &copy; Suomen Mustaterrierit ry
+    &copy; SEM Group 8
 </footer>
 </div> <!-- site-container -->
 <?php wp_footer(); ?>

@@ -6,12 +6,13 @@ get_header(); ?>
     <div id="front-page">
       <div id="fp-text">
         <h2>Tervetuloa!</h2>
-        <p>Rotuyhdistyksen kotipaikka on Hämeenlinna ja jäseniä on n. 120.<br>
+        <p>Marjaana on nosework-kokeiden ilmoittautumisjärjestelmä.<br>
         <br>
-        Yhdistys on Suomen Palveluskoiraliitto ry:n,  Suomen Kennelliitto – Finska Kennelklubben ry:n sekä Etelä-Hämeen kennelpiirin jäsen.<br></p>
-      </div>    
+        Koekalenteri-linkistä voit tarkastella tulevia nosework-kokeita.
+        Järjestelmän kautta ilmoittautuminen edellyttää rekisteröitymistä. <br></p>
+        </div>    
 
-      <img id= "front-page-img"src="https://suomenmustaterrierit.files.wordpress.com/2018/07/neiti-kesc3a4heinc3a4.jpg?w=768&h=516">   
+      <img id= "front-page-img"src="https://dogkit.fi/wp-content/uploads/2019/01/dog-2286773_1920.jpg">   
     </div>    
   </main>
 </div> <!--content-->

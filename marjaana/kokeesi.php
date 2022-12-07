@@ -13,19 +13,11 @@ echo "<script>function console_log(text){
     console.log(text);
 }</script>";
 
-function has_user_role($role){
-    $roles = marjaana_get_current_user_roles();
-    $user = wp_get_current_user();
-    if(in_array( $role, (array) $roles )){
-        return true;
-    }
-    return false;
-}
 
 get_header(); 
 
 if($_POST){
-    echo '<script>console_log("Posting")</script>';
+
     $post_id = $_POST['trial_id_input'];
     update_post_meta($post_id, '_ecalendar_meta_modified', "true");
     echo '<script>trial_modify_redirection()</script>';
@@ -52,7 +44,7 @@ if($_POST){
 // Retrieve the trials authored by current user
 
 if(is_user_logged_in()){
-    echo '<script>console_log("Logged in")</script>';
+
     if(has_user_role('author') || has_user_role('administrator')){
         $args = array(
             'author' => get_current_user_id(),
@@ -152,7 +144,6 @@ if(is_user_logged_in()){
 <?php 
 
 if(is_user_logged_in()){
-    echo '<script>console_log("Logged in")</script>';
     if(has_user_role('author') || has_user_role('administrator')){
         $args = array(
             'author' => get_current_user_id(),
@@ -253,7 +244,7 @@ if(is_user_logged_in()){
 // Retrieve the trials authored by current user
 
 if(is_user_logged_in()){
-    echo '<script>console_log("Logged in")</script>';
+
     if(has_user_role('author') || has_user_role('administrator')){
         $args = array(
             'author' => get_current_user_id(),
@@ -354,7 +345,7 @@ if(is_user_logged_in()){
 // Retrieve the trials authored by current user
 
 if(is_user_logged_in()){
-    echo '<script>console_log("Logged in")</script>';
+
     if(has_user_role('author') || has_user_role('administrator')){
         $args = array(
             'author' => get_current_user_id(),
@@ -455,7 +446,7 @@ if(is_user_logged_in()){
 // Retrieve the trials authored by current user
 
 if(is_user_logged_in()){
-    echo '<script>console_log("Logged in")</script>';
+
     if(has_user_role('author') || has_user_role('administrator')){
         $args = array(
             'author' => get_current_user_id(),

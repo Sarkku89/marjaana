@@ -23,12 +23,12 @@ get_header(); ?>
         <h2><?php the_title();?></h2>
     
         <?php the_content();?>
-        
+        <a id="lisaa_koira_a" style="text-align: center" href="lisaa-koira">Lisää koira</a><br>
     </article>
     <?php
     endwhile;
     endif;?>
-    <a href="lisaa-koira">Lisää koira</a><br>
+    
 <?php
 // Retrieve the dogs owned by this owner
 $args = array(
@@ -55,8 +55,7 @@ if($_POST){
       if($dog_owner == $owner_id){
     ?>
 <div id="mydogsdiv">
-    <br>
-    
+<div id="gridarea1">
 <table id="mydogs">
     <tr>
         <th>Koiran rekisterinimi:</th>
@@ -83,6 +82,12 @@ if($_POST){
         <td><?php echo get_post_meta($post->ID, '_adogs_meta_microchip', true);?></td>
 </tr>
 </table>
+<form method="post">
+        <input type="hidden" name="dog_id_input" value="<?php echo $dog_id; ?>">
+        <input type="submit" name="modify_dog"
+                value="Muokkaa tietoja"/>
+    </form>
+      </div>
 <?php
 $cc_kek = get_post_meta($post->ID, '_adogs_meta_kekc', true);
 $cc_yeks = get_post_meta($post->ID, '_adogs_meta_yeksc', true);
@@ -91,7 +96,7 @@ $cc_yeku = get_post_meta($post->ID, '_adogs_meta_yekuc', true);
 $cc_yeka = get_post_meta($post->ID, '_adogs_meta_yekac', true);
 
  ?>
- 
+ <div id="gridarea2">
 <h4 style="color: rgba(55, 146, 75, 1); display: inline;">Koeluokat</h4>
 <table id="competitionclasses">
     <tr>
@@ -130,13 +135,9 @@ $cc_yeka = get_post_meta($post->ID, '_adogs_meta_yekac', true);
     
     </table>
 
-    <form method="post">
-        <input type="hidden" name="dog_id_input" value="<?php echo $dog_id; ?>">
-        <input type="submit" name="modify_dog"
-                value="Muokkaa"/>
-    </form>
 
-    <br>
+      </div>
+      </div>
     <hr style="color: rgba(86, 212, 114, 1)"></hr>
 <?php
 

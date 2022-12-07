@@ -1,38 +1,30 @@
 <?php
-register_nav_menus(['primary'=> 'Päävalikko']);
+
+//Registering menus
+function register_my_menus() {
+    register_nav_menus(
+    array(
+    'primary'=> 'Päävalikko',
+    'logged_in_sub' => __( 'Regular user' ),
+    'logged_in_org' => __( 'Admin/author' )
+     )
+     );
+    }
+add_action( 'init', 'register_my_menus' );
 
 function marjaana_assets(){
     wp_enqueue_style('style', get_stylesheet_uri());
     wp_enqueue_script('marjaana-script',get_template_directory_uri(). '/js/marjaana.js',array('jquery'), '1.0.0', true);}
 add_action('wp_enqueue_scripts', 'marjaana_assets');
 
-function marjaana_widgets_init(){
-    register_sidebar(array(
-        'name' => 'Sivupalkki',
-        'id' => 'sidebar',
-        'before_widget' => '<div>',
-        'after_widget' => '</div>',
-        'before_title' => '<h2>',
-        'after_title' => '</h2>'
-    ));
-}
-
-add_action('widgets_init', 'marjaana_widgets_init');
-
-function excerpt_read_more() {
-    global $post;
-    return '<a href="' . get_permalink($post->ID) . '"> Lue lisää &raquo;</a>';
-}
-add_filter('excerpt_more', 'excerpt_read_more');
-
+// Adding title-tag to the theme
 function marjaana_theme_setup(){
     add_theme_support('title-tag');
 }
 add_action('after_setup_theme', 'marjaana_theme_setup');
 
+// Adding custom fields to admin Users page
 function yoursite_manage_users_columns( $columns ) {
-
-    // $columns is a key/value array of column slugs and names
     $columns[ 'first_name' ] = 'Etunimi';
     $columns[ 'last_name' ] = 'Sukunimi';
     $columns[ '_organization_user' ] = 'Yhdistyksen jäsenyys';
@@ -71,17 +63,9 @@ function yoursite_manage_users_custom_column( $output, $column_key, $user_id ) {
 
 add_action( 'manage_users_custom_column', 'yoursite_manage_users_custom_column', 10, 3 );
 
-function redirect_login_page() {
-    $login_url  = home_url( '/login' );
-    $url = basename($_SERVER['REQUEST_URI']); // get requested URL
-    isset( $_REQUEST['redirect_to'] ) ? ( $url   = "wp-login.php" ): 0; // if users ssend request to wp-admin
-    if( $url  == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET')  {
-        wp_redirect( $login_url );
-        exit;
-    }
-}
-add_action('init','redirect_login_page');
 
+
+// Error handler
 function error_handler() {
     $login_page  = home_url( '/login' );
     global $errors;
@@ -92,27 +76,22 @@ function error_handler() {
 }
 add_filter( 'login_errors', 'error_handler');
 
+// Checking the registered roles
 add_action( 'wp_head', 'marjaana_get_current_user_roles');
  
 function marjaana_get_current_user_roles() {
- 
   if( is_user_logged_in() ) {
- 
     $user = wp_get_current_user();
- 
     $roles = ( array ) $user->roles;
- 
-    //return $roles; // This will returns an array
     return array_values($roles);
  
   } else {
  
-    return array();
- 
-  }
- 
+    return array();}
 }
 add_action( 'init', 'blockusers_init' ); function blockusers_init() { if ( is_admin() && ! current_user_can( 'administrator' ) && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) { wp_redirect( home_url() ); exit; } } 
+
+// Don't show the WP admin bar other than admins
 add_action('after_setup_theme', 'remove_admin_bar');
 function remove_admin_bar() {
   if (!current_user_can('administrator') && !is_admin()) {
@@ -120,14 +99,32 @@ function remove_admin_bar() {
   }
 }
 
+add_action('check_admin_referer', 'scratchcode_logout_without_confirm', 10, 2);
+function scratchcode_logout_without_confirm($action, $result){
+    /**
+    * Allow logout without confirmation
+    */
+    if ($action == "log-out" && !isset($_GET['_wpnonce'])):
+        $redirectUrl = 'http://localhost/marjaana/wordpress/'; 
+        wp_redirect( str_replace( '&', '&', wp_logout_url( $redirectUrl.'?logout=true' ) ) );
+        exit;
+    endif;
+}
 
-add_filter( 'wp_nav_menu_items', 'wti_loginout_menu_link', 10, 2);
-function wti_loginout_menu_link( $items, $args) {
-	if ($args->theme_location == 'primary') {
-		if (is_user_logged_in()) {
-			$items .='<li class="right"><a href="'.wp_logout_url() .'">'. __("Kirjaudu ulos") .'</a></li>';
-			
-		}
-	}
-return $items;
+add_filter( 'wp_nav_menu_items', 'themeprefix_login_logout_link', 10, 2 );
+
+	
+function themeprefix_login_logout_link( $items, $args  ) {
+    
+    if( is_user_logged_in()  ) {
+            $loginoutlink = wp_loginout( 'index.php', false );
+            $items .= '<li class="menu-item login-but">'. $loginoutlink .'</li>';
+            return $items;
+    }
+    else {
+            $loginoutlink = wp_loginout( 'members', false );
+            $items .= '<li class="menu-item login-but">'. $loginoutlink .'</li>';
+            return $items;
+    
+    }
 }

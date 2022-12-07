@@ -15,15 +15,6 @@ echo "<script>function my_events_redirection(){
 echo "<script>function console_logging(logged) 
 {console.log(logged)}</script>";
 
-function has_user_role($role){
-    $roles = marjaana_get_current_user_roles();
-    $user = wp_get_current_user();
-    if(in_array( $role, (array) $roles )){
-        return true;
-    }
-    return false;
-}
-
 get_header();
 
 
@@ -114,14 +105,16 @@ if(is_user_logged_in()){
             wp_set_object_terms($post_id, $category, 'ecalendar_category');
 
             if ($post_id) {
+                $max = intval(sanitize_text_field($_POST['max']));
+                $min = intval(sanitize_text_field($_POST['min']));
                 update_post_meta($post_id, '_ecalendar_meta_date', sanitize_text_field($_POST['date']));
                 update_post_meta($post_id, '_ecalendar_meta_date_formatted', $formatted_date);
                 update_post_meta($post_id, '_ecalendar_meta_organizer', sanitize_text_field($_POST['organizer']));
                 update_post_meta($post_id, '_ecalendar_meta_first_judge', sanitize_text_field($_POST['first_judge']));
                 update_post_meta($post_id, '_ecalendar_meta_second_judge', sanitize_text_field($_POST['second_judge']));
                 update_post_meta($post_id, '_ecalendar_meta_limit', sanitize_text_field($_POST['limit']));
-                update_post_meta($post_id, '_ecalendar_meta_max', sanitize_text_field($_POST['max']));
-                update_post_meta($post_id, '_ecalendar_meta_min', sanitize_text_field($_POST['min']));
+                update_post_meta($post_id, '_ecalendar_meta_max', $max);
+                update_post_meta($post_id, '_ecalendar_meta_min', $min);
                 update_post_meta($post_id, '_ecalendar_meta_priority', sanitize_text_field($_POST['priority']));
                 update_post_meta($post_id, '_ecalendar_meta_enrollment1', sanitize_text_field($_POST['enrollment1']));
                 update_post_meta($post_id, '_ecalendar_meta_enrollment2', sanitize_text_field($_POST['enrollment2']));
@@ -135,21 +128,13 @@ if(is_user_logged_in()){
                 update_post_meta($post_id, '_ecalendar_meta_address', sanitize_text_field($_POST['address']));
                 update_post_meta($post_id, '_ecalendar_meta_modified', "false");
                 update_post_meta($post_id, '_ecalendar_meta_status', "Tilaa");
-                update_post_meta($post_id, '_ecalendar_meta_enrollments', $enrollment_array);
                 
                 $taxonomy = 'events_category';
                 
-                $cat_defaults = array(
-                    'cat_name' => $tag_name,
-                    'taxonomy' => $taxonomy
-                );
-                $cat = `${$post_id}`;
-                $existing= category_exists($cat);
-                echo '<script>console_logging('.$existing.')</script>';
-                $cat2 = `smtry`;
-                $existing2= category_exists($cat2);
-                echo '<script>console_logging('.$existing2.')</script>';
-                //$new_enrollment = wp_insert_category($cat_defaults);
+                $term_arr= wp_insert_term($post_id, $taxonomy);
+                if ( is_wp_error( $term_arr ) ){
+                    echo $term_arr->get_error_message();
+                };
                 
                 
 
