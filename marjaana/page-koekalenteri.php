@@ -13,20 +13,19 @@ if($_POST){
 };
 ?>
 <div id = "content">
-    <main>
-<h2>Koekalenteri</h2>
+  <main>
+    <h2>Koekalenteri</h2>
 
-<div id="kekdiv">
-<h3>Kaikkien etsintämuotojen kokeet</h3>
-<table id="kek-kokeet">
-    <tr>
-        <th>Päivämäärä</th>
-        <th>Paikkakunta</th>
-        <th>Luokka</th>
-        <th>Järjestäjä</th>
-        <th>Status</th>
-
-</tr>
+    <div id="kekdiv">
+      <h3>Kaikkien etsintämuotojen kokeet</h3>
+      <table id="kek-kokeet">
+        <tr>
+          <th>Päivämäärä</th>
+          <th>Paikkakunta</th>
+          <th>Luokka</th>
+          <th>Järjestäjä</th>
+          <th>Status</th>
+        </tr>
 <?php 
 
 // Creating dynamic table for trials. Each post will create new row and subrow.

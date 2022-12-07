@@ -17,7 +17,7 @@ if(is_user_logged_in()){
 ?>
 <div id = "content">
     <main>
-        <h2 style="text-align: center; color: rgba(86, 212, 114, 1);">Profiili</h2>
+        <h2>Profiili</h2>
         <div style="justify-content: center; background-color: rgba(218, 248, 224, 1); padding: 10px; border-radius: 10px;">
             <p style="text-align: center; color: rgba(55, 146, 75, 1); font-weight: bold;">Mikäli haluat käyttää Marjaana-tiliäsi kokeisiin ilmoittautumiseen, lisää alla olevat tiedot painamalla "Muokkaa profiilia". 
         <br><br>Tietoja luovutetaan ainoastaan niille kokeenjärjestäjille, joiden järjestämiin kokeisiin olet ilmoittautunut.</p>
