@@ -4,19 +4,41 @@
 */
 // Additional information from user
 echo "<script>function profile_redirection(){
-    window.location.replace('http://localhost/wordpress-6.0.2/semgroup8/profiili/');
+    window.location.replace('https://projector.thefirma.fi/~sjunnila/wordpress/profiili/');
 }</script>";
+
+echo "<script>function console_log(text){
+    console.log(text);
+}</script>";
+
 get_header();
 if(is_user_logged_in()){
     if($_POST){
         update_user_meta($current_user->ID, '_first_name', sanitize_text_field($_POST['user_firstname']), '');
         update_user_meta($current_user->ID, '_last_name', sanitize_text_field($_POST['user_lastname']), '');
         update_user_meta($current_user->ID, '_phone', sanitize_text_field($_POST['user_phone']), '');
-        update_user_meta($current_user->ID, '_user_organization', sanitize_text_field($_POST['user_organization']), '');
-        echo '<script>profile_redirection()</script>';
+
+        if(!empty($_POST['lisaa_uusi_org'])){
+            echo "<script>console_log('not empty')</script>";
+            $new_org = array(
+                'post_type'     => "organizers-yhdistys",
+                'post_title'    => sanitize_text_field($_POST['lisaa_uusi_org']),
+                'post_status'   => 'publish',
+              );
+            $post_id = wp_insert_post( $new_org , $wp_error );
+            if($post_id){
+                update_user_meta($current_user->ID, '_user_organization', sanitize_text_field($_POST['lisaa_uusi_org']), '');
+                echo "<script>console_log('New org')</script>";
+            }}
+        else{
+            update_user_meta($current_user->ID, '_user_organization', sanitize_text_field($_POST['user_organization']), '');
+        }
+        
+        //echo '<script>profile_redirection()</script>';
         exit;
+    };
     }
-}
+
 
 
 ?>
@@ -37,9 +59,31 @@ if(is_user_logged_in()){
                 <input type="text" name="user_email" id="user_email" size="50" value="<?php echo $current_user-> user_email;?>"><br>
                 <br>
                 <label for ="user_organization">Yhdistys</label><br>
-                <select id="user_organization">
-                    <option value="" disabled selected>Valitse yhdistys</option>
-                </select><br>
+                <select id="user_organization" name="user_organization">
+                    <option value="<?php echo get_user_meta($current_user->ID ,'_user_organization', true); ?>" selected><?php echo get_user_meta($current_user->ID ,'_user_organization', true);?></option>
+                    
+                    <?php 
+                    $args = array(
+                        'post_type' => 'organizers-yhdistys',
+                        'orderby' => 'title',
+                        'order' => 'ASC'
+                      );
+                      
+                    $associations= new WP_Query( $args );
+                    if( $associations->have_posts() ) {
+                        while( $associations->have_posts() ) {
+                          $associations->the_post();
+                          $assoc_id = get_the_ID();
+                          $assoc_title =get_the_title();
+                            ?>
+                            <option value="<?php echo $assoc_title ?>" name="user_organization"><?php echo $assoc_title ?></option>
+                            <?php
+                        }}
+                    ?>
+                    <option id="lisaa_yhdistys" value="0" >Lisää uusi</option>
+                </select><br><br>
+                <label id="lisaa_uusi_org_label" for ="lisaa_uusi_org" style="display:none; text-align: left;">Lisää uusi yhdistys</label><br>
+                <input style="display:none;" type="text" name="lisaa_uusi_org" id="lisaa_uusi_org" size="80"><br>
             </div>
 
         <div style="display: inline; width: 50%;">

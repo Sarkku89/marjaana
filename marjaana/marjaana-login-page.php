@@ -3,10 +3,16 @@
 * Template Name: Marjaana Login Pages
 */
 get_header();
+?>
+<div id = "content">
+  <main>
+    <h2>Kirjaudu sisään</h2>
+    <div id="kirjaududiv">
+<?php
 if ( ! is_user_logged_in() ) {
     $args = array(
         'redirect' => admin_url(), // redirect to admin dashboard.
-        'form_id' => 'custom_loginform',
+        'form_id' => 'marjaana_login_form',
         'label_username' => __( 'Käyttäjätunnus:' ),
         'label_password' => __( 'Salasana' ),
         'label_remember' => __( 'Muista kirjautuminen' ),
@@ -42,7 +48,11 @@ function display_error_message( $err_code ){
     }
 return $error;
 }
-
+?></div>
+</div>
+    </main>
+</div> <!--content-->
+<?php
 get_footer();
 ?>
 

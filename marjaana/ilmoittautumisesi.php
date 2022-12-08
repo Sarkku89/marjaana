@@ -8,9 +8,9 @@
 echo "<script>
 
 function enroll_trial_redirection(){
-    window.location.replace('http://localhost/marjaana/wordpress/ilmoittautumisesi/');}
+    window.location.replace('https://projector.thefirma.fi/~sjunnila/wordpress/ilmoittautumisesi/');}
 function error_redirection(){
-        window.location.replace('http://localhost/marjaana/wordpress/koekalenteri');}
+        window.location.replace('https://projector.thefirma.fi/~sjunnila/wordpress/koekalenteri/');}
 function console_log(logging){
             console.log(logging);
         }
@@ -42,10 +42,9 @@ $my_dogs= new WP_Query( $dog_args );
     $dog_id = get_the_ID();
     $nickname = get_post_meta($post->ID, '_adogs_meta_nickname', true);
     $rname = get_post_meta($post->ID, '_adogs_meta_rname', true);
-    echo '<script>console_log("'.$dog_id.'")</script>';
 ?>
     <table id="my_enrollments">
-    <tr><td>&#10148; <b>"<?php echo $nickname ?>"</b>, <?php echo $rname ?> </td></tr>
+    <tr><td colspan="2">&#10148; <b>"<?php echo $nickname ?>"</b>, <?php echo $rname ?> </td></tr>
 <?php
     $trials_args = array(
         'post_type' => 'ecalendar-event'
@@ -76,11 +75,17 @@ $my_dogs= new WP_Query( $dog_args );
             $title = get_the_title();
                 if((int)$category == (int)$trial_id && (int)$title == (int)$dog_id){
             $trial_title = get_the_title($trial_id);
+
             
                 
     ?>
 
-    <tr><td><?php echo $trial_title ?></td></tr>
+    <tr><td><?php echo $trial_title ?></td><td><button id="kokeen-tiedot" style="color:rgba(55, 146, 75, 1);
+                        font-weight: bold;
+                        background-color: rgba(218, 248, 224, 1); 
+                        padding: 5px; 
+                        border: 1px solid rgba(55, 146, 75, 1);
+                        border-radius: 5px;" onclick="">Kokeen tiedot</button></td></tr>
 
 
 <?php
@@ -88,6 +93,7 @@ $my_dogs= new WP_Query( $dog_args );
   wp_reset_postdata()
 ?>
 </table>
+<p id="kokeentiedotp" style="display:hidden;"><?php ?></p>
  </main>
 
 </div> <!--content-->

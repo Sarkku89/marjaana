@@ -99,32 +99,4 @@ function remove_admin_bar() {
   }
 }
 
-add_action('check_admin_referer', 'scratchcode_logout_without_confirm', 10, 2);
-function scratchcode_logout_without_confirm($action, $result){
-    /**
-    * Allow logout without confirmation
-    */
-    if ($action == "log-out" && !isset($_GET['_wpnonce'])):
-        $redirectUrl = 'http://localhost/marjaana/wordpress/'; 
-        wp_redirect( str_replace( '&', '&', wp_logout_url( $redirectUrl.'?logout=true' ) ) );
-        exit;
-    endif;
-}
 
-add_filter( 'wp_nav_menu_items', 'themeprefix_login_logout_link', 10, 2 );
-
-	
-function themeprefix_login_logout_link( $items, $args  ) {
-    
-    if( is_user_logged_in()  ) {
-            $loginoutlink = wp_loginout( 'index.php', false );
-            $items .= '<li class="menu-item login-but">'. $loginoutlink .'</li>';
-            return $items;
-    }
-    else {
-            $loginoutlink = wp_loginout( 'members', false );
-            $items .= '<li class="menu-item login-but">'. $loginoutlink .'</li>';
-            return $items;
-    
-    }
-}

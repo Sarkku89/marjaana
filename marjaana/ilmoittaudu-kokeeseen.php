@@ -8,9 +8,9 @@
 echo "<script>
 
 function enroll_trial_redirection(){
-    window.location.replace('http://localhost/marjaana/wordpress/ilmoittautumisesi/');}
+    window.location.replace('https://projector.thefirma.fi/~sjunnila/wordpress/ilmoittautumisesi/');}
 function error_redirection(){
-        window.location.replace('http://localhost/marjaana/wordpress/koekalenteri');}
+        window.location.replace('https://projector.thefirma.fi/~sjunnila/wordpress/koekalenteri');}
 function console_log(logging){
             console.log(logging);
         }

@@ -6,7 +6,7 @@
 */
 // Adding a dog
 echo "<script>function dog_profile_redirection(){
-    window.location.replace('https://localhost/wordpress-6.0.2/semgroup8/koirasi/');
+    window.location.replace('https://projector.thefirma.fi/~sjunnila/wordpress/koirasi/');
 }</script>";
 
 echo "<script>function console_log(){

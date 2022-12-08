@@ -6,11 +6,10 @@
 */
 // Adding a dog
 echo "<script>function dog_profile_redirection(){
-    window.location.replace('https://localhost/wordpress-6.0.2/semgroup8/koirasi');
+    window.location.replace('https://projector.thefirma.fi/~sjunnila/wordpress/koirasi');
 }</script>";
 
 get_header();
-
 
 // Retrieve the dogs owned by this owner
 $args = array(
@@ -21,12 +20,13 @@ $args = array(
   
 $my_dogs= new WP_Query( $args );
 $owner_id = get_current_user_id();
-  
+
 if( $my_dogs->have_posts() ) {
 while( $my_dogs->have_posts() ) {
     $my_dogs->the_post();
-    $dog_owner= get_post_meta($dog_id, '_adogs_meta_owner', true);
     $dog_id = get_the_ID();
+    $dog_owner= get_post_meta($dog_id, '_adogs_meta_owner', true);
+
     if($dog_owner == $owner_id){
         $modify = get_post_meta($dog_id, '_adogs_meta_modified', true);
         if($modify == "true"){
@@ -42,7 +42,6 @@ while( $my_dogs->have_posts() ) {
             $valuek4 = get_post_meta($dog_id, '_adogs_meta_yekac', true);
             $valuek5 = get_post_meta($dog_id, '_adogs_meta_yekuc', true);
             $value_gender = get_post_meta($dog_id, '_adogs_meta_gender', true); 
-        
             if($_POST){
             
                 update_post_meta($post->ID, '_adogs_meta_nickname', sanitize_text_field($_POST['nickname']));

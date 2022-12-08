@@ -6,21 +6,8 @@
 */
 // Adding a dog
 echo "<script>function my_events_redirection(){
-    window.location.replace('https://localhost/wordpress-6.0.2/semgroup8/kokeesi');
+    window.location.replace('https://projector.thefirma.fi/~sjunnila/wordpress/kokeesi');
 }</script>";
-
-echo "<script>function console_log(text){
-    console.log(text);
-}</script>";
-
-function has_user_role($role){
-    $roles = marjaana_get_current_user_roles();
-    $user = wp_get_current_user();
-    if(in_array( $role, (array) $roles )){
-        return true;
-    }
-    return false;
-}
 
 get_header();
 
@@ -28,9 +15,9 @@ get_header();
 // Retrieve the dogs owned by this owner
 
 if(is_user_logged_in()){
-    echo '<script>console_log("Logged in")</script>';
+
     if(has_user_role('author') || has_user_role('administrator')){
-        echo '<script>console_log("Yes, author")</script>';
+
         $args = array(
             'author' => get_current_user_id(),
             'post_type' => 'ecalendar-event',
@@ -65,7 +52,7 @@ if(is_user_logged_in()){
                 $place = get_post_meta($trial_id, '_ecalendar_meta_place', true);
                 $address = get_post_meta($trial_id, '_ecalendar_meta_address', true); 
 
-                echo '<script>console_log('.$trial_id.')</script>';
+
                 $terms = wp_get_object_terms($post->ID, 'ecalendar_category', array('orderby' => 'term_id', 'order' => 'ASC') );
                 if ( !empty( $terms ) ) {
                 $project = array();
@@ -74,7 +61,7 @@ if(is_user_logged_in()){
                 $categ = (int)$project[0];}};
                 }}
                 if($_POST){
-                    echo '<script>console_log("we have a posting")</script>';
+
             
                     $initial_date= wp_strip_all_tags( $_POST['date'] );
                     $dd = substr($initial_date, -2);
@@ -120,8 +107,7 @@ if(is_user_logged_in()){
                     update_post_meta($trial_id, '_ecalendar_meta_address', sanitize_text_field($_POST['address']));
                     update_post_meta($trial_id, '_ecalendar_meta_modified', "false");
                         
-                        echo '<script>console_log("success")</script>';
-                        //echo '<script>my_events_redirection()</script>';
+                        echo '<script>my_events_redirection()</script>';
                         exit;
              
                 }
@@ -186,10 +172,10 @@ if(is_user_logged_in()){
             <input type="checkbox" name="class" value="3" <?php checked($class,'3');?>/> 3<br>
             <br>
             <label for="categ">Etsintämuoto</label><br>
-            <input type="checkbox" name="categ" value="5" <?php echo (($categ=="10") ? "checked='checked'": '');?>/> Kaikkien etsintämuotojen koe<br>
-            <input type="checkbox" name="categ" value="6" <?php echo (($categ=="4") ? "checked='checked'": '');?>/> Yhden etsintämuodon koe, sisäetsintä<br>
-            <input type="checkbox" name="categ" value="7" <?php echo (($categ=="6") ? "checked='checked'": '');?>/> Yhden etsintämuodon koe, laatikkoetsintä<br>
-            <input type="checkbox" name="categ" value="8" <?php echo (($categ=="7") ? "checked='checked'": '');?>/> Yhden etsintämuodon koe, ulkoetsintä<br>
+            <input type="checkbox" name="categ" value="7" <?php echo (($categ=="10") ? "checked='checked'": '');?>/> Kaikkien etsintämuotojen koe<br>
+            <input type="checkbox" name="categ" value="8" <?php echo (($categ=="4") ? "checked='checked'": '');?>/> Yhden etsintämuodon koe, sisäetsintä<br>
+            <input type="checkbox" name="categ" value="10" <?php echo (($categ=="6") ? "checked='checked'": '');?>/> Yhden etsintämuodon koe, laatikkoetsintä<br>
+            <input type="checkbox" name="categ" value="11" <?php echo (($categ=="7") ? "checked='checked'": '');?>/> Yhden etsintämuodon koe, ulkoetsintä<br>
             <input type="checkbox" name="categ" value="9" <?php echo (($categ=="8") ? "checked='checked'": '');?>/> Yhden etsintämuodon koe, ajoneuvoetsintä<br>
             <br>
             <label for ="place">Paikkakunta</label><br>

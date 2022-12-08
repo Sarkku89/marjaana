@@ -1,6 +1,6 @@
 <?php
 echo "<script>function trial_enrollment_redirection(){
-    window.location.replace('http://localhost/marjaana/wordpress/ilmoittaudu-kokeeseen');
+    window.location.replace('https://projector.thefirma.fi/~sjunnila/wordpress/ilmoittaudu-kokeeseen');
 }</script>";
 
 get_header(); 
@@ -60,49 +60,54 @@ if( $kek_events->have_posts() ) {
         <td><?php echo get_post_meta($post->ID, '_ecalendar_meta_status', true);?></td>
        </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Paikka</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_address', true);?></td>
+            <td colspan="1">Paikka</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_address', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Ylituomari</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_first_judge', true);?></td>
+            <td colspan="1">Ylituomari</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_first_judge', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Palkintotuomari</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_second_judge', true);?></td>
+            <td colspan="1">Palkintotuomari</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_second_judge', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Rajoitukset</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_limit', true);?></td>
+            <td colspan="1">Rajoitukset</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_limit', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Etusija</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_priority', true);?></td>
+            <td colspan="1">Etusija</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_priority', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Ilm.aika</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?> - <?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?></td>
+            <td colspan="1">Ilm.aika</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?> - <?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Os.maksu</td>
-            <td colspan="3">Yleinen: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price1', true);?>€, Jäsenille: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price2', true);?>€</td>
+            <td colspan="1">Os.maksu</td>
+            <td colspan="4">Yleinen: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price1', true);?>€, Jäsenille: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price2', true);?>€</td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;"> 
-            <td colspan="2">Lisätiedot</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_info', true);?></td>
+            <td colspan="1">Lisätiedot</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_info', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Muuta</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_other', true);?></td>
+            <td colspan="1">Muuta</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_other', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Tiedustelu</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_contact', true);?></td>
+            <td colspan="1">Tiedustelu</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_contact', true);?></td>
        </tr>
        <tr id = "<?php echo $id ?>" style="display: none;">
        <td colspan="5"><form method="post">
         <input type="hidden" name="trial_id_input" value="<?php echo $trial_id; ?>">
-        <input type="submit" name="enroll_trial" value="Ilmoittaudu"/>
+        <input style="color:rgba(55, 146, 75, 1);
+                        font-weight: bold;
+                        background-color: rgba(218, 248, 224, 1); 
+                        padding: 5px; 
+                        border: 1px solid rgba(55, 146, 75, 1);
+                        border-radius: 5px;" type="submit" name="enroll_trial" value="Ilmoittaudu"/>
     </form></td>
        </tr>
        <?php 
@@ -160,49 +165,54 @@ if( $yeks_events->have_posts() ) {
         <td><?php echo get_post_meta($post->ID, '_ecalendar_meta_status', true);?></td>
        </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Paikka</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_address', true);?></td>
+            <td colspan="1">Paikka</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_address', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Ylituomari</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_first_judge', true);?></td>
+            <td colspan="1">Ylituomari</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_first_judge', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Palkintotuomari</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_second_judge', true);?></td>
+            <td colspan="1">Palkintotuomari</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_second_judge', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Rajoitukset</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_limit', true);?></td>
+            <td colspan="1">Rajoitukset</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_limit', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Etusija</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_priority', true);?></td>
+            <td colspan="1">Etusija</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_priority', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Ilm.aika</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?>-<?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?></td>
+            <td colspan="1">Ilm.aika</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?>-<?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Os.maksu</td>
-            <td colspan="3">Yleinen: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price1', true);?>€, Jäsenille: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price2', true);?>€</td>
+            <td colspan="1">Os.maksu</td>
+            <td colspan="4">Yleinen: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price1', true);?>€, Jäsenille: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price2', true);?>€</td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;"> 
-            <td colspan="2">Lisätiedot</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_info', true);?></td>
+            <td colspan="1">Lisätiedot</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_info', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Muuta</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_other', true);?></td>
+            <td colspan="1">Muuta</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_other', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Tiedustelu</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_contact', true);?></td>
+            <td colspan="1">Tiedustelu</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_contact', true);?></td>
        </tr>
        <tr id = "<?php echo $id ?>" style="display: none;">
        <td colspan="5"><form method="post">
         <input type="hidden" name="trial_id_input" value="<?php echo $trial_id; ?>">
-        <input type="submit" name="enroll_trial"
+        <input style="color:rgba(55, 146, 75, 1);
+                        font-weight: bold;
+                        background-color: rgba(218, 248, 224, 1); 
+                        padding: 5px; 
+                        border: 1px solid rgba(55, 146, 75, 1);
+                        border-radius: 5px;" type="submit" name="enroll_trial"
                 value="Ilmoittaudu"/>
     </form></td>
        </tr><?php 
@@ -260,49 +270,54 @@ if( $yekl_events->have_posts() ) {
         <td><?php echo get_post_meta($post->ID, '_ecalendar_meta_status', true);?></td>
        </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Paikka</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_address', true);?></td>
+            <td colspan="1">Paikka</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_address', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Ylituomari</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_first_judge', true);?></td>
+            <td colspan="1">Ylituomari</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_first_judge', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Palkintotuomari</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_second_judge', true);?></td>
+            <td colspan="1">Palkintotuomari</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_second_judge', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Rajoitukset</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_limit', true);?></td>
+            <td colspan="1">Rajoitukset</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_limit', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Etusija</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_priority', true);?></td>
+            <td colspan="1">Etusija</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_priority', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Ilm.aika</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?>-<?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?></td>
+            <td colspan="1">Ilm.aika</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?>-<?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Os.maksu</td>
-            <td colspan="3">Yleinen: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price1', true);?>€, Jäsenille: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price2', true);?>€</td>
+            <td colspan="1">Os.maksu</td>
+            <td colspan="4">Yleinen: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price1', true);?>€, Jäsenille: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price2', true);?>€</td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;"> 
-            <td colspan="2">Lisätiedot</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_info', true);?></td>
+            <td colspan="1">Lisätiedot</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_info', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Muuta</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_other', true);?></td>
+            <td colspan="1">Muuta</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_other', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Tiedustelu</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_contact', true);?></td>
+            <td colspan="1">Tiedustelu</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_contact', true);?></td>
        </tr>
        <tr id = "<?php echo $id ?>" style="display: none;">
        <td colspan="5"><form method="post">
         <input type="hidden" name="trial_id_input" value="<?php echo $trial_id; ?>">
-        <input type="submit" name="enroll_trial"
+        <input style="color:rgba(55, 146, 75, 1);
+                        font-weight: bold;
+                        background-color: rgba(218, 248, 224, 1); 
+                        padding: 5px; 
+                        border: 1px solid rgba(55, 146, 75, 1);
+                        border-radius: 5px;" type="submit" name="enroll_trial"
                 value="Ilmoittaudu"/>
     </form></td>
        </tr><?php 
@@ -361,49 +376,54 @@ if( $yeku_events->have_posts() ) {
         <td><?php echo get_post_meta($post->ID, '_ecalendar_meta_status', true);?></td>
        </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Paikka</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_address', true);?></td>
+            <td colspan="1">Paikka</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_address', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Ylituomari</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_first_judge', true);?></td>
+            <td colspan="1">Ylituomari</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_first_judge', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Palkintotuomari</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_second_judge', true);?></td>
+            <td colspan="1">Palkintotuomari</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_second_judge', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Rajoitukset</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_limit', true);?></td>
+            <td colspan="1">Rajoitukset</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_limit', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Etusija</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_priority', true);?></td>
+            <td colspan="1">Etusija</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_priority', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Ilm.aika</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?>-<?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?></td>
+            <td colspan="1">Ilm.aika</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?>-<?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Os.maksu</td>
-            <td colspan="3">Yleinen: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price1', true);?>€, Jäsenille: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price2', true);?>€</td>
+            <td colspan="1">Os.maksu</td>
+            <td colspan="4">Yleinen: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price1', true);?>€, Jäsenille: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price2', true);?>€</td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;"> 
-            <td colspan="2">Lisätiedot</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_info', true);?></td>
+            <td colspan="1">Lisätiedot</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_info', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Muuta</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_other', true);?></td>
+            <td colspan="1">Muuta</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_other', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Tiedustelu</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_contact', true);?></td>
+            <td colspan="1">Tiedustelu</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_contact', true);?></td>
        </tr>
        <tr id = "<?php echo $id ?>" style="display: none;">
        <td colspan="5"><form method="post">
         <input type="hidden" name="trial_id_input" value="<?php echo $trial_id; ?>">
-        <input type="submit" name="enroll_trial"
+        <input style="color:rgba(55, 146, 75, 1);
+                        font-weight: bold;
+                        background-color: rgba(218, 248, 224, 1); 
+                        padding: 5px; 
+                        border: 1px solid rgba(55, 146, 75, 1);
+                        border-radius: 5px;" type="submit" name="enroll_trial"
                 value="Ilmoittaudu"/>
     </form></td>
        </tr><?php 
@@ -461,49 +481,54 @@ if( $yeka_events->have_posts() ) {
         <td><?php echo get_post_meta($post->ID, '_ecalendar_meta_status', true);?></td>
        </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Paikka</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_address', true);?></td>
+            <td colspan="1">Paikka</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_address', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Ylituomari</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_first_judge', true);?></td>
+            <td colspan="1">Ylituomari</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_first_judge', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Palkintotuomari</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_second_judge', true);?></td>
+            <td colspan="1">Palkintotuomari</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_second_judge', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Rajoitukset</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_limit', true);?></td>
+            <td colspan="1">Rajoitukset</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_limit', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Etusija</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_priority', true);?></td>
+            <td colspan="1">Etusija</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_priority', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Ilm.aika</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?>-<?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?></td>
+            <td colspan="1">Ilm.aika</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?>-<?php echo get_post_meta($post->ID, '_ecalendar_meta_enrollment1', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Os.maksu</td>
-            <td colspan="3">Yleinen: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price1', true);?>€, Jäsenille: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price2', true);?>€</td>
+            <td colspan="1">Os.maksu</td>
+            <td colspan="4">Yleinen: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price1', true);?>€, Jäsenille: <?php echo get_post_meta($post->ID, '_ecalendar_meta_price2', true);?>€</td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;"> 
-            <td colspan="2">Lisätiedot</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_info', true);?></td>
+            <td colspan="1">Lisätiedot</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_info', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Muuta</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_other', true);?></td>
+            <td colspan="1">Muuta</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_other', true);?></td>
         </tr>
         <tr id = "<?php echo $id ?>" style="display: none;">
-            <td colspan="2">Tiedustelu</td>
-            <td colspan="3"><?php echo get_post_meta($post->ID, '_ecalendar_meta_contact', true);?></td>
+            <td colspan="1">Tiedustelu</td>
+            <td colspan="4"><?php echo get_post_meta($post->ID, '_ecalendar_meta_contact', true);?></td>
        </tr>
        <tr id = "<?php echo $id ?>" style="display: none;">
        <td colspan="5"><form method="post">
         <input type="hidden" name="trial_id_input" value="<?php echo $trial_id; ?>">
-        <input type="submit" name="enroll_trial"
+        <input style="color:rgba(55, 146, 75, 1);
+                        font-weight: bold;
+                        background-color: rgba(218, 248, 224, 1); 
+                        padding: 5px; 
+                        border: 1px solid rgba(55, 146, 75, 1);
+                        border-radius: 5px;" type="submit" name="enroll_trial"
                 value="Ilmoittaudu"/>
     </form></td>
        </tr><?php 

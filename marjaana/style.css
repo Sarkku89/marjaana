@@ -49,8 +49,12 @@ body{
     margin: auto;
     font-size: small;
 }
-#top-navi >div > ul > li:first-child{
+#top-navi >div > ul > li:nth-child(2){
     font-size:large;
+}
+#top-navi >div > ul > li:first-child{
+    display: none;
+
 }
 #top-navi ul li a{
     text-decoration: none;
@@ -201,6 +205,7 @@ main h2{
 }
 table#kek-kokeet tr#baserow > td ,tr#baserow > td{
     background-color: rgb(240, 254, 242);
+    width: 20%;
 }
 
 table#kek-kokeet, #yeks-kokeet, #yekl-kokeet, #yeku-kokeet, #yeka-kokeet {
@@ -268,16 +273,19 @@ table#competitionclasses td{
     background-color: white; 
     border-radius: 5px;
 }
-
-#register_user{
+#kirjaududiv{
+    text-align: center;
+}
+#register_user, #marjaana_login_form{
     color:rgba(55, 146, 75, 1);
     font-weight: bold;
 }
-#register_user #submit-button{
+#register_user #submit-button, #marjaana_login_form input#wp-submit.button.button-primary{
     color:rgba(55, 146, 75, 1);
     font-weight: bold;
     background-color: rgba(218, 248, 224, 1); 
     padding: 5px; 
+    border: 1px solid rgba(55, 146, 75, 1);
     border-radius: 5px; 
 }
 
@@ -389,5 +397,7 @@ table#competitionclasses td{
     #site-header h1{
         font-size: 2.5em;
     }
-
+    #top-navi >div > ul > li:nth-child(2){
+        font-size:small;
+    }
 }

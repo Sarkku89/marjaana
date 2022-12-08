@@ -3,8 +3,9 @@
 *The template name: Koirasi
 */
 echo "<script>function dog_modify_redirection(){
-    window.location.replace('https://localhost/wordpress-6.0.2/semgroup8/muokkaa-koiran-tietoja/');
+    window.location.replace('https://projector.thefirma.fi/~sjunnila/wordpress/muokkaa-koiran-tietoja/');
 }</script>";
+
 
 echo "<script>function access_denied(pass) {
         if (pass = 'yes') {
@@ -25,12 +26,24 @@ get_header(); ?>
         <h2><?php the_title();?></h2>
     
         <?php the_content();?>
-        <a id="lisaa_koira_a" style="text-align: center" href="lisaa-koira">Lisää koira</a><br>
     </article>
     <?php
     endwhile;
     endif;?>
-    <a style="background-color: rgba(218, 248, 224, 1); padding: 5px; border-radius: 5px;" href="lisaa-koira">Lisää koira</a><br>
+    <a style="color:rgba(55, 146, 75, 1);
+                        font-weight: bold;
+                        background-color: rgba(218, 248, 224, 1); 
+                        padding: 5px; 
+                        border: 1px solid rgba(55, 146, 75, 1);
+                        border-radius: 5px;
+                        text-align:center;" href="lisaa-koira">Lisää koira</a>
+    <a style="color:rgba(55, 146, 75, 1);
+                        font-weight: bold;
+                        background-color: rgba(218, 248, 224, 1); 
+                        padding: 5px; 
+                        border: 1px solid rgba(55, 146, 75, 1);
+                        border-radius: 5px;
+                        text-align:center;" href="ilmoittautumisesi">Ilmoittautumisesi</a><br><br>
 <?php
 // Retrieve the dogs owned by this owner
 $args = array(
@@ -42,12 +55,6 @@ $args = array(
 $my_dogs= new WP_Query( $args );
 $owner_id = get_current_user_id();
 
-if($_POST){
-    $post_id = $_POST['dog_id_input'];
-    update_post_meta($post_id, '_adogs_meta_modified', "true");
-    echo '<script>dog_modify_redirection()</script>';
-    exit;
-};
   
   if( $my_dogs->have_posts() ) {
     while( $my_dogs->have_posts() ) {
@@ -135,14 +142,23 @@ if($_POST){
                         font-weight: bold;
                         background-color: rgba(218, 248, 224, 1); 
                         padding: 5px; 
-                        border-radius: 5px;"
+                        border-radius: 5px;
+                        border: 1px solid rgba(55, 146, 75, 1);"
+                        
                 type="submit" name="modify_dog" value="Muokkaa"/>
     </form>
     <hr style="color: rgba(86, 212, 114, 1)"></hr>
 <?php
 
 }}}
+if($_POST){
+    
+    $post_id = $_POST['dog_id_input'];
 
+    update_post_meta($post_id, '_adogs_meta_modified', "true");
+    echo '<script>dog_modify_redirection()</script>';
+    exit;
+};
 wp_reset_postdata()
 ?>
 </main>

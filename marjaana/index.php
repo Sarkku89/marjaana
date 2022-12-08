@@ -15,7 +15,7 @@ get_header(); ?>
     <?php
     endwhile;
 else: ?>
-<p> Ei kirjoituksia</p>
+<p> Osoite virheellinen</p>
 <?php
     endif;?>
     </main>

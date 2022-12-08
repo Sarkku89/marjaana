@@ -9,7 +9,7 @@ require_once(ABSPATH . 'wp-admin/includes/taxonomy.php');
 
 // Adding a trial
 echo "<script>function my_events_redirection(){
-    window.location.replace('https://localhost/wordpress-6.0.2/semgroup8/koekalenteri');
+    window.location.replace('https://projector.thefirma.fi/~sjunnila/wordpress/koekalenteri');
 }</script>";
 
 echo "<script>function console_logging(logged) 
@@ -22,7 +22,7 @@ get_header();
 
 if(is_user_logged_in()){
     if(has_user_role('author') || has_user_role('administrator')){
-        
+        $organization = get_user_meta($current_user->ID ,'_user_organization', true);
         echo ' 
         <div id = "content">
                 <main>
@@ -33,7 +33,7 @@ if(is_user_logged_in()){
             <label for ="date">Päivämäärä</label><br>
             <input name="date" type="date"><br><br>
             <label for ="organizer">Järjestäjä</label><br>
-            <input type="text" name="organizer" id="organizer"><br>
+            <input type="text" name="organizer" id="organizer" value="'.$organization.'"><br>
             <br>
             <label for ="first_judge">Ylituomari</label><br>
             <input type="text" name="first_judge" id="first_judge"><br>
@@ -80,10 +80,10 @@ if(is_user_logged_in()){
             <input type="checkbox" name="class" value="3"/> 3<br>
             <br>
             <label for="categ">Etsintämuoto</label><br>
-            <input type="checkbox" name="categ" value="5"/> Kaikkien etsintämuotojen koe<br>
-            <input type="checkbox" name="categ" value="6"/> Yhden etsintämuodon koe, sisäetsintä<br>
-            <input type="checkbox" name="categ" value="7"/> Yhden etsintämuodon koe, laatikkoetsintä<br>
-            <input type="checkbox" name="categ" value="8"/> Yhden etsintämuodon koe, ulkoetsintä<br>
+            <input type="checkbox" name="categ" value="7"/> Kaikkien etsintämuotojen koe<br>
+            <input type="checkbox" name="categ" value="8"/> Yhden etsintämuodon koe, sisäetsintä<br>
+            <input type="checkbox" name="categ" value="10"/> Yhden etsintämuodon koe, laatikkoetsintä<br>
+            <input type="checkbox" name="categ" value="11"/> Yhden etsintämuodon koe, ulkoetsintä<br>
             <input type="checkbox" name="categ" value="9"/> Yhden etsintämuodon koe, ajoneuvoetsintä<br>
             <br>
             <label for ="place">Paikkakunta</label><br>
@@ -127,7 +127,7 @@ if(is_user_logged_in()){
                 $min = intval(sanitize_text_field($_POST['min']));
                 update_post_meta($post_id, '_ecalendar_meta_date', sanitize_text_field($_POST['date']));
                 update_post_meta($post_id, '_ecalendar_meta_date_formatted', $formatted_date);
-                update_post_meta($post_id, '_ecalendar_meta_organizer', sanitize_text_field($_POST['organizer']));
+                update_post_meta($post_id, '_ecalendar_meta_organizer', $organization);
                 update_post_meta($post_id, '_ecalendar_meta_first_judge', sanitize_text_field($_POST['first_judge']));
                 update_post_meta($post_id, '_ecalendar_meta_second_judge', sanitize_text_field($_POST['second_judge']));
                 update_post_meta($post_id, '_ecalendar_meta_limit', sanitize_text_field($_POST['limit']));
@@ -156,7 +156,7 @@ if(is_user_logged_in()){
                 
                 
 
-               //echo '<script>my_events_redirection()</script>';
+               echo '<script>my_events_redirection()</script>';
                 exit;
                 
                 }}}}

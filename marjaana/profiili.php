@@ -12,6 +12,7 @@ if(is_user_logged_in()){
     $lastname = get_user_meta($current_user->ID , '_last_name', true);
     $email = $current_user-> user_email;
     $phone = get_user_meta($current_user->ID, '_phone', true);
+    $organization = get_user_meta($current_user->ID, '_user_organization', true);
 };
 
 ?>
@@ -32,11 +33,16 @@ if(is_user_logged_in()){
         <div style="width: 50%; display: inline;";>
             <p>
                 <b>Sähköpostiosoite</b><hr style="color: rgba(86, 212, 114, 1)"> <?php echo $email; ?><br>
-                <br><b>Yhdistys</b><br><hr style="color: rgba(86, 212, 114, 1)"><br>     
+                <br><b>Yhdistys</b><br><hr style="color: rgba(86, 212, 114, 1)"><?php echo $organization; ?><br>     
             <p>
         </div>
         <br>
-        <a style="background-color: rgba(218, 248, 224, 1); padding: 5px; border-radius: 5px;" href="muokkaa-profiilia">Muokkaa profiilia</a><br>
+        <a style="color:rgba(55, 146, 75, 1);
+                        font-weight: bold;
+                        background-color: rgba(218, 248, 224, 1); 
+                        padding: 5px; 
+                        border: 1px solid rgba(55, 146, 75, 1);
+                        border-radius: 5px;" href="muokkaa-profiilia">Muokkaa profiilia</a><br>
         
 
     </main>

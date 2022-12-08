@@ -6,7 +6,7 @@
 */
 
 echo "<script>function trial_modify_redirection(){
-    window.location.replace('http://localhost/marjaana/wordpress/muokkaa-koetta');
+    window.location.replace('https://projector.thefirma.fi/~sjunnila/wordpress/muokkaa-koetta');
 }</script>";
 
 echo "<script>function console_log(text){
@@ -119,7 +119,12 @@ if(is_user_logged_in()){
                  <tr id = "<?php echo $id ?>" style="display: none;">
                  <td colspan="5"><form method="post">
                 <input type="hidden" name="trial_id_input" value="<?php echo $trial_id; ?>">
-                <input type="submit" name="modify_trial" value="Muokkaa"/> </form></td></tr>
+                <input style="color:rgba(55, 146, 75, 1);
+                        font-weight: bold;
+                        background-color: rgba(218, 248, 224, 1); 
+                        padding: 5px; 
+                        border: 1px solid rgba(55, 146, 75, 1);
+                        border-radius: 5px;" type="submit" name="modify_trial" value="Muokkaa"/> </form></td></tr>
                     <?php 
           
               }
@@ -217,7 +222,12 @@ if(is_user_logged_in()){
                  <tr id = "<?php echo $id ?>" style="display: none;">
                  <td colspan="5"><form method="post">
                 <input type="hidden" name="trial_id_input" value="<?php echo $trial_id; ?>">
-                <input type="submit" name="modify_trial" value="Muokkaa"/> </form></td></tr>
+                <input style="color:rgba(55, 146, 75, 1);
+                        font-weight: bold;
+                        background-color: rgba(218, 248, 224, 1); 
+                        padding: 5px; 
+                        border: 1px solid rgba(55, 146, 75, 1);
+                        border-radius: 5px;" type="submit" name="modify_trial" value="Muokkaa"/> </form></td></tr>
                     <?php 
           
               }
@@ -318,7 +328,12 @@ if(is_user_logged_in()){
                  <tr id = "<?php echo $id ?>" style="display: none;">
                  <td colspan="5"><form method="post">
                 <input type="hidden" name="trial_id_input" value="<?php echo $trial_id; ?>">
-                <input type="submit" name="modify_trial" value="Muokkaa"/> </form></td></tr>
+                <input style="color:rgba(55, 146, 75, 1);
+                        font-weight: bold;
+                        background-color: rgba(218, 248, 224, 1); 
+                        padding: 5px; 
+                        border: 1px solid rgba(55, 146, 75, 1);
+                        border-radius: 5px;" type="submit" name="modify_trial" value="Muokkaa"/> </form></td></tr>
                     <?php 
           
               }
@@ -419,7 +434,12 @@ if(is_user_logged_in()){
                  <tr id = "<?php echo $id ?>" style="display: none;">
                  <td colspan="5"><form method="post">
                 <input type="hidden" name="trial_id_input" value="<?php echo $trial_id; ?>">
-                <input type="submit" name="modify_trial" value="Muokkaa"/> </form></td></tr>
+                <input style="color:rgba(55, 146, 75, 1);
+                        font-weight: bold;
+                        background-color: rgba(218, 248, 224, 1); 
+                        padding: 5px; 
+                        border: 1px solid rgba(55, 146, 75, 1);
+                        border-radius: 5px;" type="submit" name="modify_trial" value="Muokkaa"/> </form></td></tr>
                     <?php 
           
               }
@@ -520,7 +540,12 @@ if(is_user_logged_in()){
                  <tr id = "<?php echo $id ?>" style="display: none;">
                  <td colspan="5"><form method="post">
                 <input type="hidden" name="trial_id_input" value="<?php echo $trial_id; ?>">
-                <input type="submit" name="modify_trial" value="Muokkaa"/> </form></td></tr>
+                <input style="color:rgba(55, 146, 75, 1);
+                        font-weight: bold;
+                        background-color: rgba(218, 248, 224, 1); 
+                        padding: 5px; 
+                        border: 1px solid rgba(55, 146, 75, 1);
+                        border-radius: 5px;" type="submit" name="modify_trial" value="Muokkaa"/> </form></td></tr>
                     <?php 
           
               }
